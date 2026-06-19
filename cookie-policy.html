@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — Toeshee</title>
+<meta name="description" content="Learn how Toeshee uses cookies and similar technologies on our website.">
+<script>document.documentElement.className+=' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --bg2:oklch(97.5% 0.003 280);
+  --dark:oklch(11% 0.015 280);
+  --dark2:oklch(16% 0.014 280);
+  --ink:oklch(11% 0.015 280);
+  --ink2:oklch(36% 0.01 280);
+  --ink3:oklch(60% 0.008 280);
+  --hi:oklch(97% 0.003 280);
+  --hi2:oklch(72% 0.006 280);
+  --hi3:oklch(50% 0.007 280);
+  --a:#FF3A10;
+  --a2:#D42E0A;
+  --line:oklch(11% 0 0/.1);
+  --lined:oklch(97% 0 0/.12);
+  --fd:'Bricolage Grotesque',sans-serif;
+  --fb:'Figtree',sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --znav:100;--zmenu:200;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* Lenis smooth scroll */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-smooth iframe{pointer-events:none}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{text-wrap:balance}
+button{font-family:var(--fb);cursor:pointer}
+::selection{background:var(--a);color:#fff}
+.w{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4.5vw,60px)}
+.s{padding:clamp(72px,10vw,130px) 0}
+#progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--a);transform-origin:0 50%;transform:scaleX(0);z-index:calc(var(--znav) + 1)}
+.d{font-family:var(--fd);font-variation-settings:'wdth' 80,'wght' 800;text-transform:uppercase;letter-spacing:-0.025em;line-height:0.96}
+.dxl{font-size:clamp(2.6rem,6vw,5rem)}
+.dlg{font-size:clamp(2rem,4.2vw,3.4rem)}
+.lede{font-size:clamp(1.05rem,1.55vw,1.22rem);line-height:1.7;color:var(--ink2);max-width:60ch;text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-weight:700;font-size:0.9rem;padding:14px 26px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;transition:background .25s var(--ease),color .25s,border-color .25s,transform .3s var(--ease);white-space:nowrap}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn-fill{background:var(--a);color:#fff;border-color:var(--a)}
+.btn-fill:hover{background:var(--a2);border-color:var(--a2);transform:translateY(-2px)}
+.btn-out{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-out:hover{border-color:var(--ink);background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn-hiout{background:transparent;color:var(--hi);border-color:var(--lined)}
+.btn-hiout:hover{border-color:var(--hi);background:var(--hi);color:var(--dark);transform:translateY(-2px)}
+
+/* Nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:var(--znav);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.5vw,60px);height:92px;transition:background .35s var(--ease),border-color .35s,transform .45s var(--ease);border-bottom:1px solid transparent}
+#nav.scrolled{background:oklch(100% 0 0/.94);backdrop-filter:blur(16px);border-color:var(--line)}
+#nav.hidden{transform:translateY(-100%)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:72px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links>a,.nav-links .drop-trigger{font-size:0.87rem;font-weight:600;padding:8px 14px;border-radius:8px;color:oklch(97% 0 0/.78);transition:color .2s,background .2s;white-space:nowrap}
+#nav.scrolled .nav-links>a,#nav.scrolled .nav-links .drop-trigger{color:var(--ink2)}
+.nav-links>a:hover,.nav-links .drop-trigger:hover{color:var(--hi)!important;background:oklch(97% 0 0/.1)}
+#nav.scrolled .nav-links>a:hover,#nav.scrolled .nav-links .drop-trigger:hover{color:var(--ink)!important;background:var(--bg2)}
+.drop{position:relative}
+.drop::after{content:'';position:absolute;top:100%;left:0;right:0;height:18px;display:none}
+.drop:hover::after{display:block}
+.drop-trigger{display:flex;align-items:center;gap:6px;cursor:default;user-select:none;background:none;border:0;font-family:var(--fb)}
+.drop-trigger svg{width:12px;height:12px;transition:transform .25s var(--ease);flex-shrink:0;opacity:.7}
+.drop:hover .drop-trigger svg,.drop.open .drop-trigger svg{transform:rotate(180deg)}
+.drop-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:oklch(14% 0.015 280);border:1px solid oklch(97% 0 0/.12);border-radius:16px;padding:10px;min-width:230px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+.drop:hover .drop-panel,.drop.open .drop-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#nav.scrolled .drop-panel{background:oklch(100% 0 0/.97);border-color:var(--line);box-shadow:0 16px 48px oklch(0% 0 0/.12)}
+.drop-panel a{display:block;padding:9px 14px;border-radius:10px;font-size:0.84rem;font-weight:600;color:var(--hi2);transition:background .18s,color .18s}
+.drop-panel a:hover{background:oklch(97% 0 0/.1);color:var(--hi)}
+#nav.scrolled .drop-panel a{color:var(--ink2)}
+#nav.scrolled .drop-panel a:hover{background:var(--bg2);color:var(--ink)}
+.drop-panel .dp-head{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(97% 0 0/.36);padding:10px 14px 4px;margin-top:4px}
+#nav.scrolled .drop-panel .dp-head{color:var(--ink3)}
+#burger{display:none;background:none;border:0;padding:8px;color:var(--hi);transition:color .3s}
+#nav.scrolled #burger{color:var(--ink)}
+.bline{transition:transform .3s var(--ease),opacity .3s;transform-origin:center}
+@media(max-width:900px){.nav-links{display:none}#burger{display:block}}
+#mmenu{position:fixed;inset:0;background:var(--dark);z-index:calc(var(--zmenu) - 1);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(28px,8vw,64px);gap:8px;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+#mmenu.open{opacity:1;visibility:visible}
+#mmenu a{font-family:var(--fd);font-variation-settings:'wdth' 82,'wght' 800;text-transform:uppercase;font-size:clamp(2rem,8vw,2.8rem);line-height:1.2;color:var(--hi2);transition:color .2s}
+#mmenu a:hover{color:var(--a)}
+
+/* Page hero */
+.phero{background:var(--dark);padding:clamp(140px,22vh,210px) 0 clamp(56px,8vw,90px);overflow:hidden}
+.phero .crumb{display:flex;align-items:center;gap:9px;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--hi3);margin-bottom:26px}
+.phero .crumb .dot{width:7px;height:7px;border-radius:50%;background:var(--a);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+.phero h1{color:var(--hi);max-width:18ch}
+.hl{display:block;overflow:hidden;line-height:1.04}
+.hli{display:block}
+.js .hli{transform:translateY(110%)}
+.acc{color:var(--a);font-style:normal}
+.phero .lede{color:var(--hi2);margin-top:26px}
+.js #ph-p{opacity:0}
+
+/* Legal prose */
+.prose{max-width:72ch}
+.prose h2{font-family:var(--fd);font-variation-settings:'wdth' 82,'wght' 760;text-transform:uppercase;letter-spacing:-0.015em;line-height:1.1;font-size:1.4rem;margin:clamp(40px,5vw,56px) 0 16px}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-weight:700;font-size:1.05rem;margin:26px 0 10px}
+.prose p{color:var(--ink2);margin-bottom:14px;text-wrap:pretty}
+.prose ul{margin:0 0 16px;padding-left:22px}
+.prose li{color:var(--ink2);margin-bottom:8px}
+.prose li::marker{color:var(--a)}
+.prose a{color:var(--a);text-decoration:underline;text-underline-offset:2px}
+.prose strong{color:var(--ink)}
+.prose code{font-family:inherit;font-size:.88em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.prose table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88rem}
+.prose th{font-family:var(--fd);font-variation-settings:'wdth' 86,'wght' 700;text-transform:uppercase;font-size:.75rem;letter-spacing:.04em;text-align:left;background:var(--bg2);padding:10px 14px;border:1px solid var(--line)}
+.prose td{padding:10px 14px;border:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.prose .upper{font-weight:600;font-size:.92rem;line-height:1.7}
+.prose .note{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-top:44px}
+.prose .note p{font-size:.85rem;color:var(--ink3);font-style:italic;margin:0}
+@media(max-width:640px){.prose table{display:block;overflow-x:auto}}
+
+/* Footer */
+footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--lined)}
+@media(max-width:860px){.foot-top{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.foot-top{grid-template-columns:1fr}}
+.foot-brand img{height:38px;width:38px;object-fit:contain;margin-bottom:10px}
+.foot-brand .fb-name{font-family:var(--fd);font-variation-settings:'wdth' 88,'wght' 800;text-transform:uppercase;font-size:1.08rem;display:block;color:var(--hi);margin-bottom:14px}
+.foot-brand p{font-size:0.88rem;color:var(--hi3);max-width:32ch;margin-bottom:20px;line-height:1.55}
+.socials{display:flex;gap:10px}
+.socials a{width:36px;height:36px;border:1px solid var(--lined);border-radius:9px;display:grid;place-items:center;color:var(--hi3);transition:border-color .25s,color .25s}
+.socials a:hover{border-color:var(--a);color:var(--a)}
+.fcol .fh{font-size:0.7rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--hi3);margin-bottom:16px}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:10px}
+.fcol li a{font-size:0.88rem;color:var(--hi2);transition:color .2s}
+.fcol li a:hover{color:var(--hi)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px 0;font-size:0.82rem;color:var(--hi3)}
+.foot-base a:hover{color:var(--hi2)}
+.foot-mega{font-family:var(--fd);font-variation-settings:'wdth' 86,'wght' 800;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(4rem,14vw,12rem);line-height:0.88;color:oklch(97% 0.003 280/.055);text-align:center;overflow:hidden;margin-top:32px;padding:0 clamp(20px,4.5vw,60px) clamp(24px,4vw,48px);white-space:nowrap;user-select:none}
+
+/* JS reveal gating */
+.js [data-r]{opacity:0}
+.js #foot-mega{opacity:0}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .phero .crumb .dot{animation:none}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .js .hli{transform:none!important}
+  .js [data-r],.js #ph-p,.js #foot-mega{opacity:1!important}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<header id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.webp" alt="Toeshee">
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="company.html">About</a>
+    <div class="drop">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" role="menu">
+        <a href="solutions.html" role="menuitem">All Solutions</a>
+        <div class="dp-head">Disciplines</div>
+        <a href="solution-crypto-support.html" role="menuitem">Crypto Customer Support</a>
+        <a href="solution-technical-support.html" role="menuitem">Technical Support</a>
+        <a href="solution-trust-safety.html" role="menuitem">Trust &amp; Safety</a>
+        <a href="solution-risk-fraud.html" role="menuitem">Risk &amp; Fraud Response</a>
+        <a href="solution-security-compliance.html" role="menuitem">Security &amp; Compliance</a>
+      </div>
+    </div>
+    <div class="drop">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Industries<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" role="menu">
+        <a href="industries.html" role="menuitem">All Industries</a>
+        <div class="dp-head">Verticals</div>
+        <a href="industry-fintech.html" role="menuitem">Fintech</a>
+        <a href="industry-igaming.html" role="menuitem">iGaming</a>
+        <a href="industry-exchanges.html" role="menuitem">Crypto Exchanges</a>
+        <a href="industry-defi.html" role="menuitem">DeFi</a>
+        <a href="industry-crypto-payments.html" role="menuitem">Crypto Payments</a>
+      </div>
+    </div>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="insights.html">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="index.html#contact" class="btn btn-fill" style="margin-left:10px;padding:10px 18px;font-size:0.86rem">Talk to us</a>
+  </nav>
+  <button id="burger" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line id="bl1" x1="3" y1="6" x2="21" y2="6" class="bline"/>
+      <line id="bl2" x1="3" y1="12" x2="21" y2="12" class="bline"/>
+      <line id="bl3" x1="3" y1="18" x2="21" y2="18" class="bline"/>
+    </svg>
+  </button>
+</header>
+
+<nav id="mmenu" aria-label="Mobile navigation">
+  <a href="company.html">About</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="industries.html">Industries</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="insights.html">Insights</a>
+  <a href="careers.html">Careers</a>
+  <a href="index.html#contact" style="color:var(--a)">Talk to us</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="w">
+    <div class="crumb"><span class="dot"></span>Legal</div>
+    <h1 class="d dxl">
+      <span class="hl"><span class="hli">How we use</span></span>
+      <span class="hl"><span class="hli"><em class="acc">cookies.</em></span></span>
+    </h1>
+    <p class="lede" id="ph-p">This Cookie Policy explains what cookies are, how Toeshee uses them, and the choices you have regarding their use. &nbsp;·&nbsp; Last updated: June 12, 2026</p>
+  </div>
+</section>
+
+<!-- LEGAL CONTENT -->
+<section class="s">
+  <div class="w">
+    <div class="prose">
+
+      <div data-r>
+        <h2>1. What Are Cookies?</h2>
+        <p>Cookies are small text files that are placed on your device (computer, smartphone, or other internet-connected device) when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and give website operators information about how the site is being used.</p>
+        <p>Cookies may be set by the website you are visiting ("first-party cookies") or by third parties, such as analytics and advertising providers ("third-party cookies").</p>
+      </div>
+
+      <div data-r>
+        <h2>2. Who We Are</h2>
+        <p>This Cookie Policy applies to the website operated by <strong>TOESHEE</strong> (also referred to as "we," "us," or "our"). If you have any questions about how we use cookies, please contact us at <a href="mailto:compliance@center-source.com">compliance@center-source.com</a>.</p>
+      </div>
+
+      <div data-r>
+        <h2>3. Types of Cookies We Use</h2>
+        <p>We use the following categories of cookies on our website:</p>
+
+        <h3>3.1 Strictly Necessary Cookies</h3>
+        <p>These cookies are essential for the website to function properly. They enable core functionality such as page navigation, security, and access to secure areas. The website cannot function properly without these cookies, and they cannot be switched off.</p>
+        <table>
+          <thead>
+            <tr><th>Cookie Name</th><th>Purpose</th><th>Duration</th><th>Type</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>toeshee_cookie_consent</code></td><td>Stores your cookie consent preferences so we don't show the consent banner on every page visit</td><td>1 year</td><td>First-party</td></tr>
+            <tr><td><code>toeshee_lang</code></td><td>Stores your preferred language (English or Spanish) for the website interface</td><td>1 year</td><td>First-party</td></tr>
+          </tbody>
+        </table>
+
+        <h3>3.2 Performance &amp; Analytics Cookies</h3>
+        <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. They allow us to measure and improve the performance of our site.</p>
+        <table>
+          <thead>
+            <tr><th>Cookie Name</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>_ga</code></td><td>Google Analytics</td><td>Distinguishes unique users by assigning a randomly generated number as a client identifier</td><td>2 years</td></tr>
+            <tr><td><code>_ga_*</code></td><td>Google Analytics</td><td>Persists session state across page requests</td><td>2 years</td></tr>
+            <tr><td><code>_gid</code></td><td>Google Analytics</td><td>Distinguishes users and stores information about how visitors use the website</td><td>24 hours</td></tr>
+            <tr><td><code>_gat</code></td><td>Google Analytics</td><td>Used to throttle request rate</td><td>1 minute</td></tr>
+          </tbody>
+        </table>
+
+        <h3>3.3 Functional Cookies</h3>
+        <p>Functional cookies enable the website to remember choices you make (such as your language preference) and provide enhanced, more personal features. These cookies are not used to track you across other websites.</p>
+
+        <h3>3.4 Marketing &amp; Targeting Cookies</h3>
+        <p>We currently do not use marketing or advertising cookies on our website. If this changes in the future, we will update this Cookie Policy and seek your consent where required by law.</p>
+      </div>
+
+      <div data-r>
+        <h2>4. How We Use Cookies</h2>
+        <p>We use cookies to:</p>
+        <ul>
+          <li>Remember your cookie consent preferences</li>
+          <li>Remember your language preference</li>
+          <li>Understand how visitors navigate and use our website</li>
+          <li>Monitor and improve the performance and reliability of our website</li>
+          <li>Ensure our website functions correctly across different browsers and devices</li>
+        </ul>
+      </div>
+
+      <div data-r>
+        <h2>5. Third-Party Cookies</h2>
+        <p>Some cookies on our website are placed by third parties. We do not control these cookies and they are subject to the relevant third party's privacy and cookie policies. Third parties whose cookies may be present on our website include:</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — for website performance measurement. See Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">opt-out tool</a>.</li>
+          <li><strong>Google Fonts</strong> — for loading web fonts. See Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>.</li>
+        </ul>
+      </div>
+
+      <div data-r>
+        <h2>6. Your Cookie Choices</h2>
+        <p>You have several options for controlling or limiting how cookies are used on our website:</p>
+
+        <h3>6.1 Cookie Consent Banner</h3>
+        <p>When you first visit our website, you will see a cookie consent banner at the bottom-left of the screen. You can:</p>
+        <ul>
+          <li><strong>Accept All</strong> — Allow all cookies described in this policy</li>
+          <li><strong>Decline</strong> — Only strictly necessary cookies will be used</li>
+        </ul>
+        <p>Your choice is remembered for one year. You can change your preference at any time by clearing your browser's local storage for our website.</p>
+
+        <h3>6.2 Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings. You can configure your browser to:</p>
+        <ul>
+          <li>Block all cookies</li>
+          <li>Delete cookies when you close your browser</li>
+          <li>Alert you when a cookie is placed on your device</li>
+        </ul>
+        <p>Please note that restricting cookies may impact your experience on our website. For guidance on managing cookies in popular browsers:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge</a></li>
+        </ul>
+
+        <h3>6.3 Opt Out of Analytics</h3>
+        <p>To opt out of Google Analytics tracking across all websites, you can install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+      </div>
+
+      <div data-r>
+        <h2>7. Local Storage</h2>
+        <p>In addition to cookies, we use the browser's <strong>localStorage</strong> API to store your consent preferences (<code>toeshee_cookie_consent</code>) and language preference (<code>toeshee_lang</code>). Unlike cookies, localStorage data is not transmitted to our servers; it remains on your device. You can clear this data through your browser's developer tools or by clearing your site data.</p>
+      </div>
+
+      <div data-r>
+        <h2>8. Do Not Track</h2>
+        <p>Some browsers include a "Do Not Track" (DNT) feature that signals to websites that you do not want your online activity tracked. As there is currently no industry-wide standard for DNT, our website does not respond differently to DNT signals. We encourage you to use the cookie controls described above to manage your preferences.</p>
+      </div>
+
+      <div data-r>
+        <h2>9. Changes to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our data practices. The "Last updated" date at the top of this page will be revised accordingly. We encourage you to review this policy periodically.</p>
+        <p>If we make significant changes that affect your rights, we will notify you through a prominent notice on our website or, where we have your contact details, by email.</p>
+      </div>
+
+      <div data-r>
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions about our use of cookies, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:compliance@center-source.com">compliance@center-source.com</a></li>
+          <li><strong>General enquiries:</strong> <a href="mailto:sales@toeshee.com">sales@toeshee.com</a></li>
+        </ul>
+        <p>For more information about how we handle your personal data, please read our <a href="privacy.html">Privacy Policy</a>.</p>
+      </div>
+
+      <div class="note">
+        <p>This Cookie Policy was last reviewed on <strong>June 12, 2026</strong>. It applies to the website at <strong>toeshee.com</strong> operated by TOESHEE.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/images/logo.webp" alt="Toeshee">
+        <span class="fb-name">Toeshee</span>
+        <p>The first outsourcing provider built for the decentralized economy. Crypto-native customer support infrastructure.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/toeshee.co/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/toesheecorp" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><div class="fh">Solutions</div><ul><li><a href="solution-crypto-support.html">Crypto Support</a></li><li><a href="solution-technical-support.html">Technical Support</a></li><li><a href="solution-trust-safety.html">Trust &amp; Safety</a></li><li><a href="solution-risk-fraud.html">Risk &amp; Fraud</a></li><li><a href="solution-security-compliance.html">Compliance</a></li></ul></div>
+      <div class="fcol"><div class="fh">Industries</div><ul><li><a href="industry-fintech.html">Fintech</a></li><li><a href="industry-igaming.html">iGaming</a></li><li><a href="industry-exchanges.html">Crypto Exchanges</a></li><li><a href="industry-defi.html">DeFi</a></li><li><a href="industry-crypto-payments.html">Crypto Payments</a></li></ul></div>
+      <div class="fcol"><div class="fh">Company</div><ul><li><a href="company.html">About</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="insights.html">Insights</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot-base"><p>© 2026 TOESHEE. All rights reserved.</p><div style="display:flex;gap:22px;flex-wrap:wrap"><a href="terms.html">Terms and conditions</a><a href="privacy.html">Privacy policy</a><a href="cookie-policy.html">Cookie Policy</a></div></div>
+  </div>
+  <div class="foot-mega" id="foot-mega">TOESHEE</div>
+</footer>
+
+<script src="assets/js/cookie-banner.js"></script>
+<script src="assets/js/i18n.js"></script>
+
+<script>
+// Nav
+const nav=document.getElementById('nav');let lastY=0;
+window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('scrolled',y>70);if(y>lastY+10&&y>380)nav.classList.add('hidden');else if(y<lastY-10)nav.classList.remove('hidden');lastY=y<0?0:y},{passive:true});
+
+// Mobile menu
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>{const o=mmenu.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.getElementById('bl1').style.transform=o?'rotate(45deg) translate(0,6px)':'';document.getElementById('bl2').style.opacity=o?'0':'1';document.getElementById('bl3').style.transform=o?'rotate(-45deg) translate(0,-6px)':'';document.body.style.overflow=o?'hidden':'';});
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>burger.click()));
+
+// Dropdowns
+document.querySelectorAll('.drop-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const drop=btn.closest('.drop');
+    const open=drop.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    document.querySelectorAll('.drop').forEach(d=>{if(d!==drop){d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');}});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.drop')){document.querySelectorAll('.drop').forEach(d=>{d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');});}});
+</script>
+
+<script src="assets/lenis.js"></script>
+<script src="assets/motion.js"></script>
+<script>
+(function(){
+  const M=window.Motion;
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const EASE=[0.16,1,0.3,1];
+
+  let lenis=null;
+  if(!reduced && window.Lenis){
+    lenis=new window.Lenis({lerp:0.09,smoothWheel:true});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-92});}}});
+    });
+  }
+
+  function showAll(){
+    document.querySelectorAll('.hli').forEach(e=>e.style.transform='none');
+    const pp=document.getElementById('ph-p');if(pp)pp.style.opacity='1';
+    document.querySelectorAll('[data-r]').forEach(e=>e.style.opacity='1');
+    document.querySelectorAll('.ctr').forEach(e=>{e.textContent=e.dataset.t;});
+    const fm=document.getElementById('foot-mega');if(fm)fm.style.opacity='1';
+    document.querySelectorAll('.bleed img').forEach(e=>e.style.clipPath='none');
+  }
+
+  if(!M||!M.animate||!M.inView||reduced){showAll();return;}
+  const {animate,inView,scroll,stagger}=M;
+
+  try{
+    const prog=document.getElementById('progress');
+    scroll(p=>{const v=typeof p==='number'?p:(p?.y?.progress??0);prog.style.transform='scaleX('+v+')';});
+
+    animate(document.querySelectorAll('.hli'),
+      {transform:['translateY(110%)','translateY(0%)']},
+      {duration:.9,delay:stagger(.11,{startDelay:.15}),ease:EASE});
+    animate('#ph-p',{opacity:[0,1],y:[20,0]},{duration:.7,delay:.6,ease:EASE});
+
+    document.querySelectorAll('[data-r]').forEach(el=>{
+      inView(el,()=>animate(el,{opacity:[0,1],y:[28,0]},{duration:.65,ease:EASE}),{margin:'-8% 0px'});
+    });
+
+    document.querySelectorAll('.ctr').forEach(el=>{
+      const t=parseInt(el.dataset.t,10);
+      inView(el,()=>animate(0,t,{duration:1.8,ease:EASE,onUpdate:v=>{el.textContent=Math.round(v);}}),{margin:'-12% 0px'});
+    });
+
+    document.querySelectorAll('.bleed img').forEach(img=>{
+      img.style.clipPath='inset(0 0 100% 0)';
+      inView(img,()=>animate(img,{clipPath:['inset(0 0 100% 0)','inset(0 0 0% 0)']},{duration:1,ease:EASE}),{margin:'-5% 0px'});
+    });
+
+    const fm=document.getElementById('foot-mega');
+    if(fm)inView(fm,()=>animate(fm,{opacity:[0,1],scale:[.93,1]},{duration:1.2,ease:EASE}),{margin:'-5% 0px'});
+  }catch(err){
+    console.warn('Motion error:',err);
+    showAll();
+  }
+})();
+</script>
+</body>
+</html>

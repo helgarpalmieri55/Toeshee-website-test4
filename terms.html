@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms and Conditions — Toeshee</title>
+<meta name="description" content="Website Terms of Use for Toeshee. Governing law: Commonwealth of Pennsylvania. Effective Date: June 12, 2026.">
+<script>document.documentElement.className+=' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --bg2:oklch(97.5% 0.003 280);
+  --dark:oklch(11% 0.015 280);
+  --dark2:oklch(16% 0.014 280);
+  --ink:oklch(11% 0.015 280);
+  --ink2:oklch(36% 0.01 280);
+  --ink3:oklch(60% 0.008 280);
+  --hi:oklch(97% 0.003 280);
+  --hi2:oklch(72% 0.006 280);
+  --hi3:oklch(50% 0.007 280);
+  --a:#FF3A10;
+  --a2:#D42E0A;
+  --line:oklch(11% 0 0/.1);
+  --lined:oklch(97% 0 0/.12);
+  --fd:'Bricolage Grotesque',sans-serif;
+  --fb:'Figtree',sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --znav:100;--zmenu:200;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* Lenis smooth scroll */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-smooth iframe{pointer-events:none}
+body{font-family:var(--fb);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{text-wrap:balance}
+button{font-family:var(--fb);cursor:pointer}
+::selection{background:var(--a);color:#fff}
+.w{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4.5vw,60px)}
+.s{padding:clamp(72px,10vw,130px) 0}
+#progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--a);transform-origin:0 50%;transform:scaleX(0);z-index:calc(var(--znav) + 1)}
+.d{font-family:var(--fd);font-variation-settings:'wdth' 80,'wght' 800;text-transform:uppercase;letter-spacing:-0.025em;line-height:0.96}
+.dxl{font-size:clamp(2.6rem,6vw,5rem)}
+.dlg{font-size:clamp(2rem,4.2vw,3.4rem)}
+.lede{font-size:clamp(1.05rem,1.55vw,1.22rem);line-height:1.7;color:var(--ink2);max-width:60ch;text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fb);font-weight:700;font-size:0.9rem;padding:14px 26px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;transition:background .25s var(--ease),color .25s,border-color .25s,transform .3s var(--ease);white-space:nowrap}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn-fill{background:var(--a);color:#fff;border-color:var(--a)}
+.btn-fill:hover{background:var(--a2);border-color:var(--a2);transform:translateY(-2px)}
+.btn-out{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-out:hover{border-color:var(--ink);background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn-hiout{background:transparent;color:var(--hi);border-color:var(--lined)}
+.btn-hiout:hover{border-color:var(--hi);background:var(--hi);color:var(--dark);transform:translateY(-2px)}
+
+/* Nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:var(--znav);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.5vw,60px);height:92px;transition:background .35s var(--ease),border-color .35s,transform .45s var(--ease);border-bottom:1px solid transparent}
+#nav.scrolled{background:oklch(100% 0 0/.94);backdrop-filter:blur(16px);border-color:var(--line)}
+#nav.hidden{transform:translateY(-100%)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:72px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links>a,.nav-links .drop-trigger{font-size:0.87rem;font-weight:600;padding:8px 14px;border-radius:8px;color:oklch(97% 0 0/.78);transition:color .2s,background .2s;white-space:nowrap}
+#nav.scrolled .nav-links>a,#nav.scrolled .nav-links .drop-trigger{color:var(--ink2)}
+.nav-links>a:hover,.nav-links .drop-trigger:hover{color:var(--hi)!important;background:oklch(97% 0 0/.1)}
+#nav.scrolled .nav-links>a:hover,#nav.scrolled .nav-links .drop-trigger:hover{color:var(--ink)!important;background:var(--bg2)}
+.drop{position:relative}
+.drop::after{content:'';position:absolute;top:100%;left:0;right:0;height:18px;display:none}
+.drop:hover::after{display:block}
+.drop-trigger{display:flex;align-items:center;gap:6px;cursor:default;user-select:none;background:none;border:0;font-family:var(--fb)}
+.drop-trigger svg{width:12px;height:12px;transition:transform .25s var(--ease);flex-shrink:0;opacity:.7}
+.drop:hover .drop-trigger svg,.drop.open .drop-trigger svg{transform:rotate(180deg)}
+.drop-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:oklch(14% 0.015 280);border:1px solid oklch(97% 0 0/.12);border-radius:16px;padding:10px;min-width:230px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+.drop:hover .drop-panel,.drop.open .drop-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#nav.scrolled .drop-panel{background:oklch(100% 0 0/.97);border-color:var(--line);box-shadow:0 16px 48px oklch(0% 0 0/.12)}
+.drop-panel a{display:block;padding:9px 14px;border-radius:10px;font-size:0.84rem;font-weight:600;color:var(--hi2);transition:background .18s,color .18s}
+.drop-panel a:hover{background:oklch(97% 0 0/.1);color:var(--hi)}
+#nav.scrolled .drop-panel a{color:var(--ink2)}
+#nav.scrolled .drop-panel a:hover{background:var(--bg2);color:var(--ink)}
+.drop-panel .dp-head{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(97% 0 0/.36);padding:10px 14px 4px;margin-top:4px}
+#nav.scrolled .drop-panel .dp-head{color:var(--ink3)}
+#burger{display:none;background:none;border:0;padding:8px;color:var(--hi);transition:color .3s}
+#nav.scrolled #burger{color:var(--ink)}
+.bline{transition:transform .3s var(--ease),opacity .3s;transform-origin:center}
+@media(max-width:900px){.nav-links{display:none}#burger{display:block}}
+#mmenu{position:fixed;inset:0;background:var(--dark);z-index:calc(var(--zmenu) - 1);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(28px,8vw,64px);gap:8px;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s}
+#mmenu.open{opacity:1;visibility:visible}
+#mmenu a{font-family:var(--fd);font-variation-settings:'wdth' 82,'wght' 800;text-transform:uppercase;font-size:clamp(2rem,8vw,2.8rem);line-height:1.2;color:var(--hi2);transition:color .2s}
+#mmenu a:hover{color:var(--a)}
+
+/* Page hero */
+.phero{background:var(--dark);padding:clamp(140px,22vh,210px) 0 clamp(56px,8vw,90px);overflow:hidden}
+.phero .crumb{display:flex;align-items:center;gap:9px;font-size:0.75rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--hi3);margin-bottom:26px}
+.phero .crumb .dot{width:7px;height:7px;border-radius:50%;background:var(--a);animation:pulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.4}}
+.phero h1{color:var(--hi);max-width:18ch}
+.hl{display:block;overflow:hidden;line-height:1.04}
+.hli{display:block}
+.js .hli{transform:translateY(110%)}
+.acc{color:var(--a);font-style:normal}
+.phero .lede{color:var(--hi2);margin-top:26px}
+.js #ph-p{opacity:0}
+
+/* Legal prose */
+.prose{max-width:72ch}
+.prose h2{font-family:var(--fd);font-variation-settings:'wdth' 82,'wght' 760;text-transform:uppercase;letter-spacing:-0.015em;line-height:1.1;font-size:1.4rem;margin:clamp(40px,5vw,56px) 0 16px}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-weight:700;font-size:1.05rem;margin:26px 0 10px}
+.prose p{color:var(--ink2);margin-bottom:14px;text-wrap:pretty}
+.prose ul{margin:0 0 16px;padding-left:22px}
+.prose li{color:var(--ink2);margin-bottom:8px}
+.prose li::marker{color:var(--a)}
+.prose a{color:var(--a);text-decoration:underline;text-underline-offset:2px}
+.prose strong{color:var(--ink)}
+.prose code{font-family:inherit;font-size:.88em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+.prose table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.88rem}
+.prose th{font-family:var(--fd);font-variation-settings:'wdth' 86,'wght' 700;text-transform:uppercase;font-size:.75rem;letter-spacing:.04em;text-align:left;background:var(--bg2);padding:10px 14px;border:1px solid var(--line)}
+.prose td{padding:10px 14px;border:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.prose .upper{font-weight:600;font-size:.92rem;line-height:1.7}
+.prose .note{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-top:44px}
+.prose .note p{font-size:.85rem;color:var(--ink3);font-style:italic;margin:0}
+
+/* Footer */
+footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid var(--lined)}
+@media(max-width:860px){.foot-top{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.foot-top{grid-template-columns:1fr}}
+.foot-brand img{height:38px;width:38px;object-fit:contain;margin-bottom:10px}
+.foot-brand .fb-name{font-family:var(--fd);font-variation-settings:'wdth' 88,'wght' 800;text-transform:uppercase;font-size:1.08rem;display:block;color:var(--hi);margin-bottom:14px}
+.foot-brand p{font-size:0.88rem;color:var(--hi3);max-width:32ch;margin-bottom:20px;line-height:1.55}
+.socials{display:flex;gap:10px}
+.socials a{width:36px;height:36px;border:1px solid var(--lined);border-radius:9px;display:grid;place-items:center;color:var(--hi3);transition:border-color .25s,color .25s}
+.socials a:hover{border-color:var(--a);color:var(--a)}
+.fcol .fh{font-size:0.7rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--hi3);margin-bottom:16px}
+.fcol ul{list-style:none}
+.fcol li{margin-bottom:10px}
+.fcol li a{font-size:0.88rem;color:var(--hi2);transition:color .2s}
+.fcol li a:hover{color:var(--hi)}
+.foot-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding:24px 0;font-size:0.82rem;color:var(--hi3)}
+.foot-base a:hover{color:var(--hi2)}
+.foot-mega{font-family:var(--fd);font-variation-settings:'wdth' 86,'wght' 800;text-transform:uppercase;letter-spacing:-0.02em;font-size:clamp(4rem,14vw,12rem);line-height:0.88;color:oklch(97% 0.003 280/.055);text-align:center;overflow:hidden;margin-top:32px;padding:0 clamp(20px,4.5vw,60px) clamp(24px,4vw,48px);white-space:nowrap;user-select:none}
+
+/* JS reveal gating */
+.js [data-r]{opacity:0}
+.js #foot-mega{opacity:0}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .phero .crumb .dot{animation:none}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .js .hli{transform:none!important}
+  .js [data-r],.js #ph-p,.js #foot-mega{opacity:1!important}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<header id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/logo.webp" alt="Toeshee">
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="company.html">About</a>
+    <div class="drop">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" role="menu">
+        <a href="solutions.html" role="menuitem">All Solutions</a>
+        <div class="dp-head">Disciplines</div>
+        <a href="solution-crypto-support.html" role="menuitem">Crypto Customer Support</a>
+        <a href="solution-technical-support.html" role="menuitem">Technical Support</a>
+        <a href="solution-trust-safety.html" role="menuitem">Trust &amp; Safety</a>
+        <a href="solution-risk-fraud.html" role="menuitem">Risk &amp; Fraud Response</a>
+        <a href="solution-security-compliance.html" role="menuitem">Security &amp; Compliance</a>
+      </div>
+    </div>
+    <div class="drop">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Industries<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" role="menu">
+        <a href="industries.html" role="menuitem">All Industries</a>
+        <div class="dp-head">Verticals</div>
+        <a href="industry-fintech.html" role="menuitem">Fintech</a>
+        <a href="industry-igaming.html" role="menuitem">iGaming</a>
+        <a href="industry-exchanges.html" role="menuitem">Crypto Exchanges</a>
+        <a href="industry-defi.html" role="menuitem">DeFi</a>
+        <a href="industry-crypto-payments.html" role="menuitem">Crypto Payments</a>
+      </div>
+    </div>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="insights.html">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="index.html#contact" class="btn btn-fill" style="margin-left:10px;padding:10px 18px;font-size:0.86rem">Talk to us</a>
+  </nav>
+  <button id="burger" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line id="bl1" x1="3" y1="6" x2="21" y2="6" class="bline"/>
+      <line id="bl2" x1="3" y1="12" x2="21" y2="12" class="bline"/>
+      <line id="bl3" x1="3" y1="18" x2="21" y2="18" class="bline"/>
+    </svg>
+  </button>
+</header>
+
+<nav id="mmenu" aria-label="Mobile navigation">
+  <a href="company.html">About</a>
+  <a href="solutions.html">Solutions</a>
+  <a href="industries.html">Industries</a>
+  <a href="case-studies.html">Case Studies</a>
+  <a href="insights.html">Insights</a>
+  <a href="careers.html">Careers</a>
+  <a href="index.html#contact" style="color:var(--a)">Talk to us</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="w">
+    <div class="crumb"><span class="dot"></span>Legal</div>
+    <h1 class="d dxl">
+      <span class="hl"><span class="hli">Website terms</span></span>
+      <span class="hl"><span class="hli">of <em class="acc">use.</em></span></span>
+    </h1>
+    <p class="lede" id="ph-p">Center Source Group &amp; TOESHEE &nbsp;·&nbsp; Effective Date: June 12, 2026 &nbsp;·&nbsp; Governing Law: Commonwealth of Pennsylvania</p>
+  </div>
+</section>
+
+<!-- LEGAL CONTENT -->
+<section class="s">
+  <div class="w">
+    <div class="prose">
+
+      <p><strong>PLEASE READ THESE WEBSITE TERMS OF USE CAREFULLY</strong> before using this Website or any related application, software, product, platform, portal, content, or service (collectively, the "Website" or "Services"). By accessing or using the Website or Services, you signify your agreement to be bound by these Terms.</p>
+
+      <div data-r>
+        <h2>1. User Eligibility</h2>
+        <p>The Website is provided by Center Source Group and TOESHEE, including their affiliates, subsidiaries, officers, directors, employees, contractors, licensors, suppliers, successors, and assigns (collectively, the "Companies," "we," "us," or "our"). The Website is available only to entities and persons over the age of legal majority who can form legally binding agreements under applicable law. If you do not qualify, you are not permitted to use the Website.</p>
+        <p>If you access or use the Website on behalf of an employer, customer, organization, or other entity, you represent and warrant that you have authority to bind that entity to these Terms, and references to "you" include that entity.</p>
+      </div>
+
+      <div data-r>
+        <h2>2. Scope of Terms of Use</h2>
+        <p>These Terms govern your use of the Website and all applications, software, portals, information, content, documentation, downloads, digital tools, AI-enabled features, customer interfaces, and services made available on or through the Website (collectively, "Services"), except to the extent that such Services are governed by a separate written agreement.</p>
+        <p>Specific terms, service agreements, master services agreements, software license agreements, order forms, statements of work, data processing agreements, privacy notices, acceptable use policies, or rate and service guides may apply to particular Services or items provided to you (each a "Service Agreement"). If there is a conflict between these Terms and a fully executed Service Agreement, the Service Agreement controls solely with respect to the covered Services.</p>
+      </div>
+
+      <div data-r>
+        <h2>3. Accounts, Credentials, and Security</h2>
+        <p>Certain areas of the Website or Services may be restricted to registered users, customers, employees, vendors, or other authorized parties. You are responsible for maintaining the confidentiality of usernames, passwords, API keys, tokens, multi-factor authentication methods, and other credentials associated with your account.</p>
+        <p>You agree to provide accurate, current, and complete information and to update it as necessary. You are responsible for all activities that occur under your credentials, whether or not authorized by you, except to the extent caused solely by the Companies' breach of these Terms. You must promptly notify the Companies of any unauthorized access, suspected security incident, or misuse of your account.</p>
+      </div>
+
+      <div data-r>
+        <h2>4. Modifications</h2>
+        <p>The Companies may revise and update these Terms at any time. Your continued use of the Website or Services after any changes are posted or otherwise made available means you accept those changes. Any aspect of the Website or Services may be changed, supplemented, deleted, suspended, or updated without notice at the sole discretion of the Companies.</p>
+        <p>The Companies may also change or impose fees for products and services provided through the Website at any time in their sole discretion, unless a separate written Service Agreement states otherwise. The Companies may establish or change general practices, technical limits, storage limits, usage limits, access methods, eligibility requirements, and other policies concerning the Website, Services, products, and content.</p>
+      </div>
+
+      <div data-r>
+        <h2>5. Privacy Policy and Data Processing</h2>
+        <p>The applicable Center Source Group and/or TOESHEE Privacy Policy governs the use of information collected from or provided by you through the Website. By using the Website, you acknowledge that personal information may be collected, processed, stored, used, and transferred as described in the applicable <a href="privacy.html">Privacy Policy</a> <a href="cookie-policy.html">Cookie Policy</a> or Service Agreement.</p>
+        <p>With respect to any individual whose personal information is provided by you to the Companies, you represent that you have obtained all necessary rights, notices, permissions, consents, and legal bases for the processing contemplated by the Services, including transfer of such data to the United States and to other countries whose laws may not provide the same level of protection as the laws of the individual's country, state, or province of origin.</p>
+        <p>Where required, the parties may enter into a separate data processing agreement or similar addendum. In the absence of such an agreement, you remain responsible for determining whether the Website and Services are appropriate for the personal information and regulated data you submit.</p>
+      </div>
+
+      <div data-r>
+        <h2>6. License and Ownership</h2>
+        <p>Any and all intellectual property rights ("Intellectual Property") associated with the Website, Services, systems, software, databases, documentation, text, graphics, images, audio, video, digital downloads, data compilations, designs, interfaces, workflows, reports, templates, know-how, and other materials (collectively, the "Content") are the sole property of the Companies, their affiliates, licensors, suppliers, or other third parties.</p>
+        <p>The Content is protected by copyright, trademark, trade dress, trade secret, unfair competition, database, and other laws in the United States and other countries. Elements of the Website may not be copied, imitated, framed, scraped, mirrored, reverse engineered, or exploited in whole or in part except as expressly authorized in writing.</p>
+        <p>The Companies grant you a limited, personal, nonexclusive, nontransferable, non-sublicensable, revocable license to: (a) access and use the Website, Content, and Services only in the manner presented or expressly permitted by the Companies; and (b) access and use the Companies' computer, network, software, platform, and service systems offered within the Website only in the manner expressly permitted by the Companies.</p>
+      </div>
+
+      <div data-r>
+        <h2>7. Restrictions on Use of the Website</h2>
+        <p>In addition to other restrictions set forth in these Terms, you agree that you will not:</p>
+        <ul>
+          <li>Disguise the origin of information transmitted through the Website or misrepresent your identity, authority, or affiliation.</li>
+          <li>Place false, inaccurate, fraudulent, deceptive, or misleading information on the Website.</li>
+          <li>Use or access any service, information, application, software, API, or system available through the Website in a manner not expressly permitted by the Companies.</li>
+          <li>Input, upload, transmit, or distribute any information, code, file, or content that contains viruses, Trojan horses, worms, time bombs, ransomware, spyware, malware, logic bombs, or routines intended to damage, interfere with, intercept, expropriate, or disrupt any system, data, Website, Information, or third-party rights.</li>
+          <li>Access any restricted area of the Website or Services unless you are an authorized customer, employee, vendor, or permitted user.</li>
+          <li>Frame or utilize framing techniques to enclose any trademark, mark, trade dress, logo, service mark, proprietary information, content, image, text, page layout, or user interface without express written consent.</li>
+          <li>Modify, reproduce, duplicate, copy, distribute, sell, resell, publish, license, visit, scrape, crawl, harvest, or otherwise exploit any portion of the Content or Services for any unapproved commercial purpose.</li>
+          <li>Circumvent, disable, or interfere with security, rate limits, authentication controls, access controls, robots exclusion protocols, digital rights management, logging, monitoring, or usage metering.</li>
+          <li>Use the Website or Services to infringe, misappropriate, or violate any intellectual property, privacy, publicity, confidentiality, contractual, employment, consumer protection, anti-spam, export control, sanctions, or other legal right.</li>
+          <li>Use the Services to create, transmit, or facilitate unlawful, harassing, abusive, discriminatory, defamatory, obscene, exploitative, deceptive, or harmful content.</li>
+          <li>Use automated means to access the Website except through Company-approved APIs or interfaces and in compliance with applicable usage restrictions.</li>
+        </ul>
+      </div>
+
+      <div data-r>
+        <h2>8. User Content and Submissions</h2>
+        <p>If you submit, upload, transmit, or otherwise provide content, data, files, communications, feedback, ideas, concepts, techniques, suggestions, improvements, comments, or other materials through the Website (collectively, "User Content"), you represent and warrant that you have all rights and permissions necessary to do so and that your User Content does not violate these Terms or applicable law.</p>
+        <p>You retain ownership of your User Content, subject to the rights granted in these Terms and any applicable Service Agreement. You grant the Companies a worldwide, nonexclusive, royalty-free, sublicensable, transferable license to host, store, copy, process, transmit, display, reproduce, modify, adapt, and use User Content as necessary to operate, maintain, secure, support, improve, and provide the Website and Services, comply with law, enforce agreements, and protect the Companies, users, and the public.</p>
+        <p>The Companies do not accept unsolicited ideas, concepts, or techniques for new services or products through the Website unless expressly requested in writing.</p>
+      </div>
+
+      <div data-r>
+        <h2>9. AI-Enabled and Automated Features</h2>
+        <p>Some Services may include artificial intelligence, machine learning, automation, data enrichment, analytics, recommendation, transcription, summarization, classification, or other automated features (collectively, "AI Features"). AI Features may generate incomplete, inaccurate, biased, outdated, or unexpected outputs.</p>
+        <p>You are solely responsible for reviewing, validating, and approving any output before relying on it or using it in legal, financial, medical, employment, compliance, safety, operational, or other material decisions. AI Features are not a substitute for professional judgment, legal advice, accounting advice, medical advice, or other expert review.</p>
+      </div>
+
+      <div data-r>
+        <h2>10. Third-Party Links and Outbound Links</h2>
+        <p>The Website may contain links to third-party websites, resources, products, integrations, plug-ins, content, software, APIs, or services (collectively, "Linked Sites"). Linked Sites are provided solely as a convenience and not as an endorsement by the Companies of the content, products, services, or practices of such Linked Sites.</p>
+        <p>The Companies make no representations or warranties regarding the correctness, accuracy, performance, reliability, legality, security, availability, privacy practices, or quality of any content, software, service, product, or application found at any Linked Site. If you access Linked Sites, you do so at your own risk, and your use is subject to the applicable policies and terms of those Linked Sites.</p>
+      </div>
+
+      <div data-r>
+        <h2>11. Inbound Links</h2>
+        <p>All links to the Website must be approved by the Companies unless the Companies have made a specific page publicly available for ordinary, non-deceptive linking. The Companies may at any time, in their sole discretion, terminate permission to link to the Website.</p>
+        <p>Any website, application, or device that links to the Website or any page available therein is prohibited from: (a) replicating Content; (b) using a browser, border, frame, or embedded environment around the Content; (c) implying that the Companies or affiliates endorse it or its products; (d) misrepresenting any facts, including its relationship with the Companies or affiliates; or (e) using any logo or mark of the Companies or affiliates without express written permission.</p>
+      </div>
+
+      <div data-r>
+        <h2>12. Confidentiality and Business Information</h2>
+        <p>You may receive or access nonpublic business, technical, operational, financial, product, roadmap, security, pricing, customer, employee, vendor, or other confidential information through the Website or Services ("Confidential Information"). You agree to protect Confidential Information using at least reasonable care and not to disclose it except as authorized in writing, required by law, or permitted by a Service Agreement.</p>
+        <p>Information is not Confidential Information if it becomes publicly available without breach of these Terms, was lawfully known to you before disclosure, is independently developed without use of Confidential Information, or is rightfully received from a third party without duty of confidentiality.</p>
+      </div>
+
+      <div data-r>
+        <h2>13. Fees, Orders, and Paid Services</h2>
+        <p>Certain Services may require payment of fees, subscriptions, usage-based charges, implementation charges, support charges, or other amounts. Fees and payment terms will be stated in the applicable Service Agreement, order form, invoice, online checkout flow, statement of work, or other written commercial terms.</p>
+        <p>Unless otherwise stated, fees are non-refundable, exclusive of taxes, and payable in U.S. dollars. You are responsible for taxes, duties, assessments, and governmental charges associated with your purchases, excluding taxes based on the Companies' net income. The Companies may suspend or limit paid Services for late payment, chargebacks, suspected fraud, or breach of payment terms.</p>
+      </div>
+
+      <div data-r>
+        <h2>14. Service Availability, Support, and Changes</h2>
+        <p>The Companies may provide maintenance, updates, upgrades, patches, bug fixes, security improvements, or feature changes from time to time. The Website and Services may be unavailable due to planned maintenance, emergency maintenance, telecommunications failures, force majeure events, cyber incidents, third-party service disruptions, or other circumstances.</p>
+        <p>The Companies do not guarantee that the Website or Services will be uninterrupted, error-free, secure, or available at any particular time or location unless a separate written Service Agreement provides a specific service level commitment.</p>
+      </div>
+
+      <div data-r>
+        <h2>15. Termination</h2>
+        <p>You agree that the Companies, in their sole discretion, may terminate, suspend, restrict, or disable your use of the Website, Company Systems, Information, Services, and Content at any time, without prior notice, for any or no reason, including if the Companies believe you have violated these Terms or applicable law, if security or operational integrity may be at risk, or if access and use continue to be allowed to others.</p>
+        <p>Upon suspension or termination, you must immediately: (a) discontinue use of the Website and Services; and (b) destroy any copies you have made of any portion of the Content, except to the extent retention is required by law or permitted by a Service Agreement. Accessing the Website, Company Systems, Information, or Services after termination, suspension, or discontinuation may constitute an act of trespass and unauthorized access.</p>
+      </div>
+
+      <div data-r>
+        <h2>16. Disclaimer of Warranties</h2>
+        <p class="upper">THE COMPANIES MAKE NO REPRESENTATIONS ABOUT THE RESULTS TO BE OBTAINED FROM USING THE WEBSITE, COMPANY SYSTEMS, SERVICES, INFORMATION, CONTENT, AI FEATURES, THIRD-PARTY INTEGRATIONS, OR LINKED SITES. USE OF THE SAME IS AT YOUR OWN RISK.</p>
+        <p class="upper">THE WEBSITE, COMPANY SYSTEMS, INFORMATION, SERVICES, CONTENT, AND AI FEATURES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. THE COMPANIES, THEIR AFFILIATES, LICENSORS, SUPPLIERS, AND SERVICE PROVIDERS, TO THE FULLEST EXTENT PERMITTED BY LAW, DISCLAIM ALL WARRANTIES, EITHER EXPRESS OR IMPLIED, STATUTORY OR OTHERWISE, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT OF THIRD-PARTY RIGHTS, TITLE, QUIET ENJOYMENT, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, RELIABILITY, AVAILABILITY, SECURITY, TIMELINESS, AND PERFORMANCE.</p>
+      </div>
+
+      <div data-r>
+        <h2>17. Limitation of Liability</h2>
+        <p class="upper">TO THE EXTENT PERMITTED BY APPLICABLE LAW AND TO THE EXTENT THAT THE COMPANIES ARE OTHERWISE FOUND RESPONSIBLE FOR ANY DAMAGES, THE COMPANIES ARE RESPONSIBLE FOR ACTUAL, DIRECT DAMAGES ONLY.</p>
+        <p class="upper">TO THE EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE COMPANIES, THEIR AFFILIATES, LICENSORS, SUPPLIERS, SERVICE PROVIDERS, OR ANY THIRD PARTIES MENTIONED ON OR THROUGH THE WEBSITE BE LIABLE FOR ANY INCIDENTAL, INDIRECT, EXEMPLARY, SPECIAL, PUNITIVE, MULTIPLE, OR CONSEQUENTIAL DAMAGES, LOST PROFITS, LOST REVENUE, LOSS OF GOODWILL, LOSS OF DATA, LOSS OF BUSINESS, BUSINESS INTERRUPTION, SUBSTITUTE SERVICES, COMPUTER FAILURE, SECURITY INCIDENTS, OR DAMAGES RESULTING FROM THE USE OF OR INABILITY TO USE THE WEBSITE, COMPANY SYSTEMS, INFORMATION, SERVICES, AI FEATURES, OR CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT, DELICT, NEGLIGENCE, STRICT LIABILITY, STATUTE, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT THE COMPANIES WERE ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+      </div>
+
+      <div data-r>
+        <h2>18. Indemnification</h2>
+        <p>You agree to defend, indemnify, and hold harmless the Companies, their affiliates, and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors, and assigns from and against any claims, demands, actions, investigations, losses, liabilities, damages, judgments, settlements, penalties, fines, costs, and expenses, including reasonable attorneys' fees, arising out of or related to: (a) your access to or use of the Website or Services; (b) your User Content or data; (c) your violation of these Terms, a Service Agreement, or applicable law; (d) your infringement or misappropriation of any intellectual property, privacy, publicity, confidentiality, or other rights; or (e) your negligence, fraud, willful misconduct, or unauthorized access.</p>
+      </div>
+
+      <div data-r>
+        <h2>19. Compliance with Law Including Export Control</h2>
+        <p>You agree to use the Website in strict compliance with all applicable laws, rulings, sanctions, export controls, regulations, orders, industry rules, and policies, and in a fashion that does not, in the sole judgment of the Companies, negatively reflect on the goodwill or reputation of the Companies.</p>
+        <p>The Companies and the Website are based in the United States. You agree to comply with all applicable restrictions and not to export or re-export Content, software, Information, or Services to countries, persons, entities, or end uses prohibited under U.S. or other applicable export control or sanctions laws.</p>
+      </div>
+
+      <div data-r>
+        <h2>20. Forward-Looking Statements</h2>
+        <p>Except for historical information contained on the Website, statements made through the Website may constitute forward-looking statements within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934, where applicable. Such forward-looking statements involve risks and uncertainties. Factors that may cause actual results to differ materially include economic and market conditions, competitive environment, regulatory, technological, and operational changes, cybersecurity events, supply chain issues, and other risks.</p>
+      </div>
+
+      <div data-r>
+        <h2>21. Copyright and Intellectual Property Complaints</h2>
+        <p>If you believe content on the Website infringes your copyright or other intellectual property rights, you may notify the Companies through the contact information listed below. Your notice should identify the work claimed to be infringed, identify the allegedly infringing material, provide your contact information, include a statement that you have a good-faith belief the use is unauthorized, and include a statement that the information in the notice is accurate and that you are authorized to act on behalf of the rights owner.</p>
+      </div>
+
+      <div data-r>
+        <h2>22. Jurisdiction and Venue</h2>
+        <p class="upper">TO THE FULLEST EXTENT PERMITTED BY LAW, YOU HEREBY EXPRESSLY AGREE THAT ANY PROCEEDING ARISING OUT OF OR RELATING TO YOUR USE OF THE WEBSITE, COMPANY SYSTEMS, INFORMATION, SERVICES, AI FEATURES, AND CONTENT SHALL BE INSTITUTED IN A STATE OR FEDERAL COURT SITTING IN THE COUNTY OF CHESTER, COMMONWEALTH OF PENNSYLVANIA, UNITED STATES OF AMERICA.</p>
+        <p class="upper">YOU EXPRESSLY WAIVE ANY OBJECTION THAT YOU MAY HAVE NOW OR HEREAFTER TO THE LAYING OF VENUE OR TO THE JURISDICTION OF ANY SUCH PROCEEDING. YOU AGREE THAT ANY CLAIM OR CAUSE OF ACTION ARISING OUT OF OR RELATED TO YOUR USE OF THE WEBSITE, COMPANY SYSTEMS, INFORMATION, SERVICES, AND/OR CONTENT MUST BE FILED WITHIN ONE (1) YEAR AFTER SUCH CLAIM OR CAUSE OF ACTION AROSE, UNLESS A SHORTER PERIOD IS REQUIRED BY LAW OR A LONGER PERIOD CANNOT BE WAIVED UNDER APPLICABLE LAW.</p>
+      </div>
+
+      <div data-r>
+        <h2>23. Governing Law and Language</h2>
+        <p>To the fullest extent permitted by law, these Terms are governed by the internal substantive laws of the Commonwealth of Pennsylvania, U.S.A., excluding: (a) Pennsylvania's conflict-of-law principles; (b) the United Nations Convention on Contracts for the International Sale of Goods; (c) the 1974 Convention on the Limitation Period in the International Sale of Goods; and (d) the Protocol amending the 1974 Convention, done at Vienna April 11, 1980.</p>
+        <p>The controlling language for these Terms is English. Any translation is provided for convenience only. In the event of conflict between an English version and a translated version, the English version controls, unless applicable law requires otherwise.</p>
+      </div>
+
+      <div data-r>
+        <h2>24. Jury Trial and Class Action Waiver</h2>
+        <p class="upper">TO THE FULLEST EXTENT PERMITTED BY LAW, EACH PARTY WAIVES ANY RIGHT TO A JURY TRIAL IN ANY ACTION OR PROCEEDING ARISING OUT OF OR RELATED TO THESE TERMS, THE WEBSITE, OR THE SERVICES.</p>
+        <p class="upper">TO THE FULLEST EXTENT PERMITTED BY LAW, EACH PARTY AGREES THAT CLAIMS MAY BE BROUGHT ONLY ON AN INDIVIDUAL BASIS AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, COLLECTIVE, CONSOLIDATED, PRIVATE ATTORNEY GENERAL, OR REPRESENTATIVE ACTION.</p>
+      </div>
+
+      <div data-r>
+        <h2>25. International Users</h2>
+        <p>The Website is controlled from the United States. The Companies make no representation that the Website, Services, Information, or Content are appropriate or available for use in any particular jurisdiction. Accessing the Website from territories where the Content or Services are illegal is prohibited. Users who access the Website from outside the United States do so on their own initiative and are responsible for compliance with local laws.</p>
+      </div>
+
+      <div data-r>
+        <h2>26. General</h2>
+        <p>You may not assign these Terms or any of your interests, rights, or obligations under these Terms without the Companies' prior written consent. The Companies may assign these Terms in connection with a merger, acquisition, financing, reorganization, sale of assets, change of control, or transfer of business operations.</p>
+        <p>If any provision of these Terms is found to be invalid or unenforceable by a court having competent jurisdiction, the invalidity or unenforceability of such provision shall not affect the validity and enforceability of the remaining provisions. No waiver of any provision shall be deemed a further or continuing waiver of such provision or any other provision.</p>
+        <p>The Companies will not be responsible for delay or failure to perform due to causes beyond reasonable control, including acts of God, natural disasters, war, terrorism, labor disputes, power failures, telecommunications failures, cyber incidents, governmental action, supply shortages, or third-party service disruptions.</p>
+      </div>
+
+      <div data-r>
+        <h2>27. Written Document and Electronic Communications</h2>
+        <p>You may preserve these Terms in written form by printing or saving them for your records, and you waive any other requirement that these Terms be evidenced by a written document. You consent to receive communications electronically through the Website, email, account notices, or other digital channels. Electronic notices, agreements, disclosures, and communications satisfy any legal requirement that such communications be in writing, to the extent permitted by law.</p>
+      </div>
+
+      <div data-r>
+        <h2>28. Complete Agreement</h2>
+        <p>Except as expressly provided in a separate license, Service Agreement, order form, statement of work, data processing agreement, rate and service guide, tariff, or other written agreement between you and the Companies, these Terms constitute the entire agreement between you and the Companies with respect to the use of the Website, Company Systems, software, Services, Information, and Content, and supersede all prior or contemporaneous discussions, communications, conversations, negotiations, proposals, and agreements concerning the subject matter hereof.</p>
+      </div>
+
+      <div data-r>
+        <h2>29. For Residents of Quebec</h2>
+        <p>The parties declare that they have required that these Terms and all documents related hereto, either present or future, be drawn up in the English language only. <em>Les parties declarent par les presentes qu'ils exigent que cette entente et tous les documents y afferents, soit pour le present ou l'avenir, soient rediges en langue anglaise seulement.</em></p>
+      </div>
+
+      <div data-r>
+        <h2>30. Customer Service and Legal Contact</h2>
+        <p>Questions or comments regarding the Website or these Terms may be submitted to Center Source Group and TOESHEE at: <a href="mailto:compliance@center-source.com">compliance@center-source.com</a></p>
+        <p>For TOESHEE support inquiries: <a href="mailto:sales@toeshee.com">sales@toeshee.com</a></p>
+      </div>
+
+      <div class="note">
+        <p>This publication-ready business template incorporates the core structure and substantive provisions from the Center Source Terms of Use template. Effective Date: June 12, 2026. Final review by Pennsylvania counsel is recommended.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="w">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/images/logo.webp" alt="Toeshee">
+        <span class="fb-name">Toeshee</span>
+        <p>The first outsourcing provider built for the decentralized economy. Crypto-native customer support infrastructure.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/toeshee.co/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.linkedin.com/company/toesheecorp" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><div class="fh">Solutions</div><ul><li><a href="solution-crypto-support.html">Crypto Support</a></li><li><a href="solution-technical-support.html">Technical Support</a></li><li><a href="solution-trust-safety.html">Trust &amp; Safety</a></li><li><a href="solution-risk-fraud.html">Risk &amp; Fraud</a></li><li><a href="solution-security-compliance.html">Compliance</a></li></ul></div>
+      <div class="fcol"><div class="fh">Industries</div><ul><li><a href="industry-fintech.html">Fintech</a></li><li><a href="industry-igaming.html">iGaming</a></li><li><a href="industry-exchanges.html">Crypto Exchanges</a></li><li><a href="industry-defi.html">DeFi</a></li><li><a href="industry-crypto-payments.html">Crypto Payments</a></li></ul></div>
+      <div class="fcol"><div class="fh">Company</div><ul><li><a href="company.html">About</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="insights.html">Insights</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="foot-base"><p>© 2026 TOESHEE. All rights reserved.</p><div style="display:flex;gap:22px;flex-wrap:wrap"><a href="terms.html">Terms and conditions</a><a href="privacy.html">Privacy policy</a><a href="cookie-policy.html">Cookie Policy</a></div></div>
+  </div>
+  <div class="foot-mega" id="foot-mega">TOESHEE</div>
+</footer>
+
+<script src="assets/js/cookie-banner.js"></script>
+<script src="assets/js/i18n.js"></script>
+
+<script>
+// Nav
+const nav=document.getElementById('nav');let lastY=0;
+window.addEventListener('scroll',()=>{const y=window.scrollY;nav.classList.toggle('scrolled',y>70);if(y>lastY+10&&y>380)nav.classList.add('hidden');else if(y<lastY-10)nav.classList.remove('hidden');lastY=y<0?0:y},{passive:true});
+
+// Mobile menu
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu');
+burger.addEventListener('click',()=>{const o=mmenu.classList.toggle('open');burger.setAttribute('aria-expanded',o);document.getElementById('bl1').style.transform=o?'rotate(45deg) translate(0,6px)':'';document.getElementById('bl2').style.opacity=o?'0':'1';document.getElementById('bl3').style.transform=o?'rotate(-45deg) translate(0,-6px)':'';document.body.style.overflow=o?'hidden':'';});
+mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>burger.click()));
+
+// Dropdowns
+document.querySelectorAll('.drop-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const drop=btn.closest('.drop');
+    const open=drop.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open);
+    document.querySelectorAll('.drop').forEach(d=>{if(d!==drop){d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');}});
+  });
+});
+document.addEventListener('click',e=>{if(!e.target.closest('.drop')){document.querySelectorAll('.drop').forEach(d=>{d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');});}});
+</script>
+
+<script src="assets/lenis.js"></script>
+<script src="assets/motion.js"></script>
+<script>
+(function(){
+  const M=window.Motion;
+  const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const EASE=[0.16,1,0.3,1];
+
+  let lenis=null;
+  if(!reduced && window.Lenis){
+    lenis=new window.Lenis({lerp:0.09,smoothWheel:true});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-92});}}});
+    });
+  }
+
+  function showAll(){
+    document.querySelectorAll('.hli').forEach(e=>e.style.transform='none');
+    const pp=document.getElementById('ph-p');if(pp)pp.style.opacity='1';
+    document.querySelectorAll('[data-r]').forEach(e=>e.style.opacity='1');
+    document.querySelectorAll('.ctr').forEach(e=>{e.textContent=e.dataset.t;});
+    const fm=document.getElementById('foot-mega');if(fm)fm.style.opacity='1';
+    document.querySelectorAll('.bleed img').forEach(e=>e.style.clipPath='none');
+  }
+
+  if(!M||!M.animate||!M.inView||reduced){showAll();return;}
+  const {animate,inView,scroll,stagger}=M;
+
+  try{
+    const prog=document.getElementById('progress');
+    scroll(p=>{const v=typeof p==='number'?p:(p?.y?.progress??0);prog.style.transform='scaleX('+v+')';});
+
+    animate(document.querySelectorAll('.hli'),
+      {transform:['translateY(110%)','translateY(0%)']},
+      {duration:.9,delay:stagger(.11,{startDelay:.15}),ease:EASE});
+    animate('#ph-p',{opacity:[0,1],y:[20,0]},{duration:.7,delay:.6,ease:EASE});
+
+    document.querySelectorAll('[data-r]').forEach(el=>{
+      inView(el,()=>animate(el,{opacity:[0,1],y:[28,0]},{duration:.65,ease:EASE}),{margin:'-8% 0px'});
+    });
+
+    document.querySelectorAll('.ctr').forEach(el=>{
+      const t=parseInt(el.dataset.t,10);
+      inView(el,()=>animate(0,t,{duration:1.8,ease:EASE,onUpdate:v=>{el.textContent=Math.round(v);}}),{margin:'-12% 0px'});
+    });
+
+    document.querySelectorAll('.bleed img').forEach(img=>{
+      img.style.clipPath='inset(0 0 100% 0)';
+      inView(img,()=>animate(img,{clipPath:['inset(0 0 100% 0)','inset(0 0 0% 0)']},{duration:1,ease:EASE}),{margin:'-5% 0px'});
+    });
+
+    const fm=document.getElementById('foot-mega');
+    if(fm)inView(fm,()=>animate(fm,{opacity:[0,1],scale:[.93,1]},{duration:1.2,ease:EASE}),{margin:'-5% 0px'});
+  }catch(err){
+    console.warn('Motion error:',err);
+    showAll();
+  }
+})();
+</script>
+</body>
+</html>
