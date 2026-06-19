@@ -74,7 +74,7 @@ button{font-family:var(--fb);cursor:pointer}
 .drop{position:relative}
 .drop::after{content:'';position:absolute;top:100%;left:0;right:0;height:18px;display:none}
 .drop:hover::after{display:block}
-.drop-trigger{display:flex;align-items:center;gap:6px;cursor:default;user-select:none;background:none;border:0;font-family:var(--fb)}
+.drop-trigger{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;background:none;border:0;font-family:var(--fb)}
 .drop-trigger svg{width:12px;height:12px;transition:transform .25s var(--ease);flex-shrink:0;opacity:.7}
 .drop:hover .drop-trigger svg,.drop.open .drop-trigger svg{transform:rotate(180deg)}
 .drop-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:oklch(14% 0.015 280);border:1px solid oklch(97% 0 0/.12);border-radius:16px;padding:10px;min-width:230px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
@@ -194,8 +194,8 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
   </a>
   <nav class="nav-links" aria-label="Primary">
     <div class="drop">
-      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="drop-panel">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dropmenu-solutions">Solutions<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" id="dropmenu-solutions">
         <a href="solutions.html">All Solutions</a>
         <div class="dp-head">Disciplines</div>
         <a href="solution-crypto-support.html">Crypto Customer Support</a>
@@ -206,8 +206,8 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
     </div>
     <div class="drop">
-      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Industries<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="drop-panel">
+      <button class="drop-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dropmenu-industries">Industries<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="drop-panel" id="dropmenu-industries">
         <a href="industries.html">All Industries</a>
         <div class="dp-head">Verticals</div>
         <a href="industry-fintech.html">Fintech</a>
