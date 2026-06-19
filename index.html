@@ -284,7 +284,7 @@ button{font-family:var(--fb);cursor:pointer}
 .f label{display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink2);margin-bottom:7px}
 .f input,.f textarea{width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;color:var(--ink);font-family:var(--fb);font-size:0.95rem;padding:13px 16px;transition:border-color .25s}
 .f input::placeholder,.f textarea::placeholder{color:var(--ink3)}
-.f input:focus,.f textarea:focus{outline:none;border-color:var(--a)}
+.f input:focus,.f textarea:focus{border-color:var(--a)}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:480px){.frow{grid-template-columns:1fr}}
 .fchk{display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--ink2);margin-bottom:20px}
@@ -338,6 +338,22 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
   .hero-bg{transform:none!important}
   .js [data-r],.js [data-rl],.js [data-rr],.js #hero-p,.js #hero-cta,.js #hero-floor,.js #foot-mega{opacity:1!important}
 }
+
+/* a11y pass: focus visibility, active nav, breadcrumbs, form helpers */
+:focus-visible{outline:2px solid var(--a);outline-offset:2px;border-radius:4px}
+.nav-links a[aria-current="page"],.nav-links .drop-trigger.is-active{color:var(--hi)!important;position:relative}
+#nav.scrolled .nav-links a[aria-current="page"],#nav.scrolled .nav-links .drop-trigger.is-active{color:var(--ink)!important}
+.nav-links a[aria-current="page"]::after,.nav-links .drop-trigger.is-active::after{content:'';position:absolute;left:14px;right:14px;bottom:1px;height:2px;background:var(--a);border-radius:2px}
+.drop:focus-within .drop-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--hi3);margin-bottom:26px}
+.crumbs a{color:var(--hi3);transition:color .2s}
+.crumbs a:hover{color:var(--hi)}
+.crumbs [aria-current="page"]{color:var(--a)}
+.crumbs .sep{opacity:.45}
+.field-err{display:block;font-size:0.78rem;color:var(--a);margin-top:6px}
+.field-err[hidden]{display:none}
+.req{color:var(--a)}
+.form-note{font-size:0.78rem;color:var(--ink3);margin:12px 0 0;text-wrap:pretty}
 </style>
 </head>
 <body>
@@ -421,7 +437,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
     </h1>
     <p class="lede hero-sub" id="hero-p">Crypto-native support, built inside your workflows. Incidents, fraud, and KYC exceptions, resolved at scale.</p>
     <div class="hero-ctas" id="hero-cta">
-      <a href="#contact" class="btn btn-fill">Request an evaluation</a>
+      <a href="#contact" class="btn btn-fill">Request a technical evaluation</a>
       <a href="#about" class="btn btn-hiout">How we operate</a>
     </div>
   </div>
@@ -479,23 +495,23 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
     <div class="sol-list">
       <div class="sol-item">
         <button class="sol-trigger" aria-expanded="false"><h3>Crypto Customer Support Operations</h3><span class="sol-icon" aria-hidden="true">+</span></button>
-        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Support is an overlooked layer of crypto security. Our teams know on-chain activity, wallet mechanics, and the failure modes behind your highest-risk tickets.</p><a href="solution-crypto-support.html" class="btn btn-hiout" style="flex-shrink:0">Learn more <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
+        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Support is an overlooked layer of crypto security. Our teams know on-chain activity, wallet mechanics, and the failure modes behind your highest-risk tickets.</p><a href="solution-crypto-support.html" class="btn btn-hiout" style="flex-shrink:0">View solution <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
       </div>
       <div class="sol-item">
         <button class="sol-trigger" aria-expanded="false"><h3>Technical Support &amp; Incident Handling</h3><span class="sol-icon" aria-hidden="true">+</span></button>
-        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>L1–L3 triage and escalation aligned with your engineering teams. Platform errors, failed transactions, and smart-contract issues, handled with real technical fluency.</p><a href="solution-technical-support.html" class="btn btn-hiout" style="flex-shrink:0">Learn more <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
+        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>L1–L3 triage and escalation aligned with your engineering teams. Platform errors, failed transactions, and smart-contract issues, handled with real technical fluency.</p><a href="solution-technical-support.html" class="btn btn-hiout" style="flex-shrink:0">View solution <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
       </div>
       <div class="sol-item">
         <button class="sol-trigger" aria-expanded="false"><h3>Trust &amp; Safety Operations</h3><span class="sol-icon" aria-hidden="true">+</span></button>
-        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Fraud detection, investigation, and response that helps risk teams spot patterns and cut exposure across on-chain and off-chain activity. Trust is earned in operations, not policies.</p><a href="solution-trust-safety.html" class="btn btn-hiout" style="flex-shrink:0">Learn more <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
+        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Fraud detection, investigation, and response that helps risk teams spot patterns and cut exposure across on-chain and off-chain activity. Trust is earned in operations, not policies.</p><a href="solution-trust-safety.html" class="btn btn-hiout" style="flex-shrink:0">View solution <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
       </div>
       <div class="sol-item">
         <button class="sol-trigger" aria-expanded="false"><h3>Risk Operations &amp; Fraud Response</h3><span class="sol-icon" aria-hidden="true">+</span></button>
-        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Threat identification through monitoring, pattern detection, and chain-analysis signals, with structured response before minor signals become major incidents.</p><a href="solution-risk-fraud.html" class="btn btn-hiout" style="flex-shrink:0">Learn more <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
+        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Threat identification through monitoring, pattern detection, and chain-analysis signals, with structured response before minor signals become major incidents.</p><a href="solution-risk-fraud.html" class="btn btn-hiout" style="flex-shrink:0">View solution <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
       </div>
       <div class="sol-item">
         <button class="sol-trigger" aria-expanded="false"><h3>Security &amp; Compliance Support</h3><span class="sol-icon" aria-hidden="true">+</span></button>
-        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Operations aligned with KYC/AML, GDPR, MiCA, and PCI-DSS. Governed and audit-ready, because your auditors evaluate the support layer too.</p><a href="solution-security-compliance.html" class="btn btn-hiout" style="flex-shrink:0">Learn more <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
+        <div class="sol-body"><div class="sol-bi"><div class="sol-content"><p>Operations aligned with KYC/AML, GDPR, MiCA, and PCI-DSS. Governed and audit-ready, because your auditors evaluate the support layer too.</p><a href="solution-security-compliance.html" class="btn btn-hiout" style="flex-shrink:0">View solution <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div>
       </div>
     </div>
   </div>
@@ -507,8 +523,8 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
     <div class="ind-head">
       <h2 class="d dlg" data-r>Built for the industries that cannot afford to fail</h2>
       <div class="ind-nav">
-        <button class="indbtn" id="ind-prev" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button class="indbtn" id="ind-next" aria-label="Next"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="indbtn" id="ind-prev" aria-label="Previous industries" aria-controls="ind-rail"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="indbtn" id="ind-next" aria-label="Next industries" aria-controls="ind-rail"><svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
     <div class="ind-rail" id="ind-rail">
@@ -614,11 +630,13 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       <div class="con-form" data-r>
         <div class="form-h">Send us a message</div>
         <form id="cform" novalidate>
-          <div class="frow"><div class="f"><label for="cn">Full name</label><input id="cn" name="name" type="text" placeholder="Jane Smith" autocomplete="name" required></div><div class="f"><label for="ce">Work email</label><input id="ce" name="email" type="email" placeholder="jane@company.com" autocomplete="email" required></div></div>
+          <div class="frow"><div class="f"><label for="cn">Full name <span class="req" aria-hidden="true">*</span></label><input id="cn" name="name" type="text" placeholder="Jane Smith" autocomplete="name" aria-describedby="cn-err" required><span class="field-err" id="cn-err" hidden>Please enter your name.</span></div><div class="f"><label for="ce">Work email <span class="req" aria-hidden="true">*</span></label><input id="ce" name="email" type="email" placeholder="jane@company.com" autocomplete="email" aria-describedby="ce-err" required><span class="field-err" id="ce-err" hidden>Please enter a valid email address.</span></div></div>
           <div class="f"><label for="cc">Company</label><input id="cc" name="company" type="text" placeholder="Your company name" autocomplete="organization"></div>
           <div class="f"><label for="cm">Message</label><textarea id="cm" name="message" rows="4" placeholder="Tell us about your operational needs..."></textarea></div>
-          <div class="fchk"><input type="checkbox" id="ct" name="terms" required><label for="ct">I agree to the <a href="terms.html">terms and conditions</a></label></div>
+          <div class="fchk"><input type="checkbox" id="ct" name="terms" aria-describedby="ct-err" required><label for="ct">I agree to the <a href="terms.html">terms and conditions</a> <span class="req" aria-hidden="true">*</span></label></div>
+          <span class="field-err" id="ct-err" hidden>Please agree to the terms to continue.</span>
           <button type="submit" class="btn btn-fill" style="width:100%;justify-content:center">Send message</button>
+          <p class="form-note">We reply within 24 hours. Your details are used only to respond, never shared.</p>
           <p id="ferror" class="form-msg form-err" role="alert" hidden></p>
           <p id="fsuccess" class="form-msg form-ok" role="status" hidden>Message sent. We'll be in touch within 24 hours.</p>
         </form>
@@ -672,6 +690,7 @@ document.querySelectorAll('.drop-trigger').forEach(btn=>{
   });
 });
 document.addEventListener('click',e=>{if(!e.target.closest('.drop')){document.querySelectorAll('.drop').forEach(d=>{d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');});}});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;document.querySelectorAll('.drop.open').forEach(d=>{d.classList.remove('open');const t=d.querySelector('.drop-trigger');if(t){t.setAttribute('aria-expanded','false');t.focus();}});if(typeof mmenu!=='undefined'&&mmenu.classList.contains('open')){burger.click();burger.focus();}});
 
 // Accordion
 document.querySelectorAll('.sol-item').forEach(item=>{
@@ -696,16 +715,16 @@ document.getElementById('ind-next').addEventListener('click',()=>rail.scrollBy({
   const $=id=>document.getElementById(id);
   const err=$('ferror'),ok=$('fsuccess'),terms=$('ct');
   const fields=[$('cn'),$('ce'),$('cm')];
+  // [field, error-element] pairs that carry inline messages
+  const pairs=[[$('cn'),$('cn-err')],[$('ce'),$('ce-err')],[$('ct'),$('ct-err')]];
   const mark=(el,bad)=>el&&el.setAttribute('aria-invalid',bad?'true':'false');
+  function clearErrors(){err.hidden=true;ok.hidden=true;pairs.forEach(([el,m])=>{mark(el,false);if(m)m.hidden=true;});}
   form.addEventListener('submit',async e=>{
     e.preventDefault();
     err.hidden=true;ok.hidden=true;
-    fields.forEach(el=>mark(el,false));
     if(!form.checkValidity()){
-      fields.forEach(el=>{if(el&&!el.checkValidity())mark(el,true);});
-      err.textContent=terms.checkValidity()
-        ?'Please complete the highlighted fields, including a valid work email.'
-        :'Please agree to the terms and conditions to continue.';
+      pairs.forEach(([el,m])=>{const bad=el&&!el.checkValidity();mark(el,bad);if(m)m.hidden=!bad;});
+      err.textContent='Please fix the highlighted fields below.';
       err.hidden=false;
       const bad=form.querySelector(':invalid');if(bad&&bad.focus)bad.focus();
       return;
@@ -720,7 +739,7 @@ document.getElementById('ind-next').addEventListener('click',()=>rail.scrollBy({
       }else{
         await new Promise(res=>setTimeout(res,1000)); // no endpoint wired yet — simulate
       }
-      ok.hidden=false;form.reset();fields.forEach(el=>mark(el,false));
+      clearErrors();ok.hidden=false;form.reset();
       btn.textContent='Message sent';
       setTimeout(()=>{btn.textContent=label;btn.disabled=false;},2500);
     }catch(_){
@@ -729,7 +748,8 @@ document.getElementById('ind-next').addEventListener('click',()=>rail.scrollBy({
     }
   });
   // clear messages once the user edits again (no dead-end)
-  form.addEventListener('input',()=>{ok.hidden=true;err.hidden=true;});
+  form.addEventListener('input',clearErrors);
+  form.addEventListener('change',clearErrors);
 })();
 
 // Hero video: pause/play control (defaults to paused under reduced motion)
