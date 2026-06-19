@@ -171,9 +171,8 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 .nav-links a[aria-current="page"],.nav-links .drop-trigger.is-active{color:var(--hi)!important;position:relative}
 #nav.scrolled .nav-links a[aria-current="page"],#nav.scrolled .nav-links .drop-trigger.is-active{color:var(--ink)!important}
 .nav-links a[aria-current="page"]::after,.nav-links .drop-trigger.is-active::after{content:'';position:absolute;left:14px;right:14px;bottom:1px;height:2px;background:var(--a);border-radius:2px}
-.drop:focus-within .drop-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:0.75rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--hi3);margin-bottom:26px}
-.crumbs a{color:var(--hi3);transition:color .2s}
+.crumbs a{color:var(--hi2);transition:color .2s}
 .crumbs a:hover{color:var(--hi)}
 .crumbs [aria-current="page"]{color:var(--a)}
 .crumbs .sep{opacity:.45}
@@ -196,26 +195,26 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
   <nav class="nav-links" aria-label="Primary">
     <div class="drop">
       <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Solutions<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="drop-panel" role="menu">
-        <a href="solutions.html" role="menuitem">All Solutions</a>
+      <div class="drop-panel">
+        <a href="solutions.html">All Solutions</a>
         <div class="dp-head">Disciplines</div>
-        <a href="solution-crypto-support.html" role="menuitem">Crypto Customer Support</a>
-        <a href="solution-technical-support.html" role="menuitem">Technical Support</a>
-        <a href="solution-trust-safety.html" role="menuitem">Trust &amp; Safety</a>
-        <a href="solution-risk-fraud.html" role="menuitem">Risk &amp; Fraud Response</a>
-        <a href="solution-security-compliance.html" role="menuitem">Security &amp; Compliance</a>
+        <a href="solution-crypto-support.html">Crypto Customer Support</a>
+        <a href="solution-technical-support.html">Technical Support</a>
+        <a href="solution-trust-safety.html">Trust &amp; Safety</a>
+        <a href="solution-risk-fraud.html">Risk &amp; Fraud Response</a>
+        <a href="solution-security-compliance.html">Security &amp; Compliance</a>
       </div>
     </div>
     <div class="drop">
       <button class="drop-trigger" aria-haspopup="true" aria-expanded="false">Industries<svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="drop-panel" role="menu">
-        <a href="industries.html" role="menuitem">All Industries</a>
+      <div class="drop-panel">
+        <a href="industries.html">All Industries</a>
         <div class="dp-head">Verticals</div>
-        <a href="industry-fintech.html" role="menuitem">Fintech</a>
-        <a href="industry-igaming.html" role="menuitem">iGaming</a>
-        <a href="industry-exchanges.html" role="menuitem">Crypto Exchanges</a>
-        <a href="industry-defi.html" role="menuitem">DeFi</a>
-        <a href="industry-crypto-payments.html" role="menuitem">Crypto Payments</a>
+        <a href="industry-fintech.html">Fintech</a>
+        <a href="industry-igaming.html">iGaming</a>
+        <a href="industry-exchanges.html">Crypto Exchanges</a>
+        <a href="industry-defi.html">DeFi</a>
+        <a href="industry-crypto-payments.html">Crypto Payments</a>
       </div>
     </div>
     <a href="case-studies.html">Case Studies</a>
@@ -489,6 +488,7 @@ document.querySelectorAll('.drop-trigger').forEach(btn=>{
     document.querySelectorAll('.drop').forEach(d=>{if(d!==drop){d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');}});
   });
 });
+document.querySelectorAll('.drop').forEach(d=>{d.addEventListener('focusout',()=>{setTimeout(()=>{if(!d.contains(document.activeElement)){d.classList.remove('open');const t=d.querySelector('.drop-trigger');if(t)t.setAttribute('aria-expanded','false');}},0);});});
 document.addEventListener('click',e=>{if(!e.target.closest('.drop')){document.querySelectorAll('.drop').forEach(d=>{d.classList.remove('open');d.querySelector('.drop-trigger').setAttribute('aria-expanded','false');});}});
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;document.querySelectorAll('.drop.open').forEach(d=>{d.classList.remove('open');const t=d.querySelector('.drop-trigger');if(t){t.setAttribute('aria-expanded','false');t.focus();}});if(typeof mmenu!=='undefined'&&mmenu.classList.contains('open')){burger.click();burger.focus();}});
 </script>
