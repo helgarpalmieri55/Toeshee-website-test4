@@ -721,12 +721,15 @@ document.getElementById('ind-next').addEventListener('click',()=>rail.scrollBy({
         await new Promise(res=>setTimeout(res,1000)); // no endpoint wired yet — simulate
       }
       ok.hidden=false;form.reset();fields.forEach(el=>mark(el,false));
-      btn.textContent='Sent';
+      btn.textContent='Message sent';
+      setTimeout(()=>{btn.textContent=label;btn.disabled=false;},2500);
     }catch(_){
       err.textContent='Something went wrong sending your message. Please email sales@toeshee.com and we’ll respond within 24 hours.';
       err.hidden=false;btn.textContent=label;btn.disabled=false;
     }
   });
+  // clear messages once the user edits again (no dead-end)
+  form.addEventListener('input',()=>{ok.hidden=true;err.hidden=true;});
 })();
 
 // Hero video: pause/play control (defaults to paused under reduced motion)
