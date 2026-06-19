@@ -145,14 +145,6 @@ button{font-family:var(--fb);cursor:pointer}
 .hf-tag.on{color:var(--a)}
 @media(max-width:760px){.hf-sep{flex-basis:100%}}
 
-/* Marquee */
-.marquee{background:var(--bg);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0}
-.marquee-track{display:flex;width:max-content;animation:marquee 38s linear infinite}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.mi{display:flex;align-items:center;gap:32px;padding:0 32px;white-space:nowrap;font-family:var(--fd);font-variation-settings:'wdth' 84,'wght' 700;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.02em;color:var(--ink3)}
-.mi::after{content:'';width:6px;height:6px;background:var(--a);border-radius:50%}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
 /* About */
 .about-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(36px,6vw,88px);align-items:center}
 @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
@@ -321,7 +313,6 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 /* Reduced motion */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .marquee-track{animation:none}
   .hero-status .dot{animation:none}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
   .js .hli{transform:none!important}
@@ -424,24 +415,6 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
     </div>
   </div>
 </section>
-
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="mi">Crypto Support Operations</div>
-    <div class="mi">Technical Incident Handling</div>
-    <div class="mi">Trust &amp; Safety</div>
-    <div class="mi">Risk &amp; Fraud Response</div>
-    <div class="mi">Compliance Support</div>
-    <div class="mi">KYC / AML Operations</div>
-    <div class="mi">Crypto Support Operations</div>
-    <div class="mi">Technical Incident Handling</div>
-    <div class="mi">Trust &amp; Safety</div>
-    <div class="mi">Risk &amp; Fraud Response</div>
-    <div class="mi">Compliance Support</div>
-    <div class="mi">KYC / AML Operations</div>
-  </div>
-</div>
 
 <!-- ABOUT -->
 <section class="s" id="about">
