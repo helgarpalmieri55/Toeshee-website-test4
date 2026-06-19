@@ -17,7 +17,7 @@
   --dark2:oklch(16% 0.014 280);
   --ink:oklch(11% 0.015 280);
   --ink2:oklch(36% 0.01 280);
-  --ink3:oklch(60% 0.008 280);
+  --ink3:oklch(52% 0.01 280);
   --hi:oklch(97% 0.003 280);
   --hi2:oklch(72% 0.006 280);
   --hi3:oklch(50% 0.007 280);
@@ -94,6 +94,10 @@ button{font-family:var(--fb);cursor:pointer}
 #mmenu.open{opacity:1;visibility:visible}
 #mmenu a{font-family:var(--fd);font-variation-settings:'wdth' 82,'wght' 800;text-transform:uppercase;font-size:clamp(2rem,8vw,2.8rem);line-height:1.2;color:var(--hi2);transition:color .2s}
 #mmenu a:hover{color:var(--a)}
+/* Skip link */
+.skip-link{position:fixed;top:12px;left:12px;z-index:calc(var(--zmenu) + 1);background:var(--ink);color:var(--hi);padding:11px 18px;border-radius:9px;font-weight:700;font-size:0.85rem;transform:translateY(-160%);transition:transform .2s var(--ease)}
+.skip-link:focus{transform:translateY(0);outline:2px solid var(--a);outline-offset:2px}
+#main:focus{outline:none}
 
 /* Page hero */
 .phero{background:var(--dark);padding:clamp(140px,22vh,210px) 0 clamp(56px,8vw,90px);overflow:hidden}
@@ -136,7 +140,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 .foot-brand .fb-name{font-family:var(--fd);font-variation-settings:'wdth' 88,'wght' 800;text-transform:uppercase;font-size:1.08rem;display:block;color:var(--hi);margin-bottom:14px}
 .foot-brand p{font-size:0.88rem;color:var(--hi3);max-width:32ch;margin-bottom:20px;line-height:1.55}
 .socials{display:flex;gap:10px}
-.socials a{width:36px;height:36px;border:1px solid var(--lined);border-radius:9px;display:grid;place-items:center;color:var(--hi3);transition:border-color .25s,color .25s}
+.socials a{width:40px;height:40px;border:1px solid var(--lined);border-radius:9px;display:grid;place-items:center;color:var(--hi3);transition:border-color .25s,color .25s}
 .socials a:hover{border-color:var(--a);color:var(--a)}
 .fcol .fh{font-size:0.7rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--hi3);margin-bottom:16px}
 .fcol ul{list-style:none}
@@ -214,6 +218,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
 <div id="progress"></div>
 
 <!-- NAV -->
@@ -272,7 +277,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 </nav>
 
 <!-- PAGE HERO -->
-<section class="phero">
+<section class="phero" id="main" tabindex="-1">
   <div class="w">
     <div class="crumb"><span class="dot"></span>Industries · DeFi</div>
     <h1 class="d dxl">
@@ -281,7 +286,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       <span class="hl"><span class="hli">fast response keep</span></span>
       <span class="hl"><span class="hli">protocols solvent.</span></span>
     </h1>
-    <p class="lede" id="ph-p">DeFi support requires early detection, fast containment, and clear escalation paths — before minor user issues become protocol-level events.</p>
+    <p class="lede" id="ph-p">DeFi support requires early detection, fast containment, and clear escalation paths: before minor user issues become protocol-level events.</p>
   </div>
 </section>
 
@@ -298,7 +303,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
         <h2 class="d dlg">Deep expertise in DeFi operations</h2>
       </div>
       <div class="body" data-r>
-        <p>DeFi protocols face a distinctive challenge: sophisticated users, protocol-level incidents, and no central custodian — meaning support must translate complex technical reality into clear, trustworthy communication at speed. Toeshee provides teams trained on smart contract interactions, wallet mechanics, bridge failures, liquidity events, and governance processes.</p>
+        <p>DeFi protocols face a distinctive challenge: sophisticated users, protocol-level incidents, and no central custodian, meaning support must translate complex technical reality into clear, trustworthy communication at speed. Toeshee provides teams trained on smart contract interactions, wallet mechanics, bridge failures, liquidity events, and governance processes.</p>
         <ul class="tags"><li>Smart Contract Support</li><li>Wallet &amp; Transaction Issues</li><li>Incident Communication</li><li>Community Operations</li></ul>
       </div>
     </div>
@@ -317,10 +322,10 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
     <div class="caps">
       <div class="cap" data-r><div class="cn"></div><h3>Smart Contract Support</h3><p>Failed contract interactions, reverted transactions, ABI mismatches, and gas estimation issues across EVM-compatible chains.</p></div>
       <div class="cap" data-r><div class="cn"></div><h3>Wallet &amp; Transaction Issues</h3><p>Wallet connection failures, bridging issues, stuck transactions, and token visibility problems across multi-chain DeFi environments.</p></div>
-      <div class="cap" data-r><div class="cn"></div><h3>Incident Communication</h3><p>Structured communication for protocol incidents, liquidity events, and emergency governance actions — keeping users informed without amplifying panic.</p></div>
+      <div class="cap" data-r><div class="cn"></div><h3>Incident Communication</h3><p>Structured communication for protocol incidents, liquidity events, and emergency governance actions, keeping users informed without amplifying panic.</p></div>
       <div class="cap" data-r><div class="cn"></div><h3>Community Operations</h3><p>Moderation across Discord, Telegram, and forums: escalation handling, FUD management, and governance queries.</p></div>
-      <div class="cap" data-r><div class="cn"></div><h3>Fraud &amp; Exploit Response</h3><p>Rapid-response workflows for exploits, phishing, and social engineering — coordinated across community, security, and engineering.</p></div>
-      <div class="cap" data-r><div class="cn"></div><h3>Governance &amp; Proposal Support</h3><p>Voting mechanics, proposal processes, and delegation workflows — helping users engage correctly with governance systems.</p></div>
+      <div class="cap" data-r><div class="cn"></div><h3>Fraud &amp; Exploit Response</h3><p>Rapid-response workflows for exploits, phishing, and social engineering, coordinated across community, security, and engineering.</p></div>
+      <div class="cap" data-r><div class="cn"></div><h3>Governance &amp; Proposal Support</h3><p>Voting mechanics, proposal processes, and delegation workflows, helping users engage correctly with governance systems.</p></div>
     </div>
   </div>
 </section>
@@ -337,7 +342,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
       <div class="phase" data-r>
         <div class="pk"><div class="pn">02</div><div class="pt">Operations</div></div>
-        <div><h3>24/7 Embedded Support Operations</h3><p class="pd">An embedded extension of your protocol community — managing user issues, incident communication, governance queries, and escalations in real time.</p><ul><li>Real-time community monitoring and triage</li><li>Protocol incident response with pre-defined communication playbooks</li><li>Cross-chain and bridge issue handling</li><li>Weekly CSAT tracking and community health reviews</li></ul></div>
+        <div><h3>24/7 Embedded Support Operations</h3><p class="pd">An embedded extension of your protocol community, managing user issues, incident communication, governance queries, and escalations in real time.</p><ul><li>Real-time community monitoring and triage</li><li>Protocol incident response with pre-defined communication playbooks</li><li>Cross-chain and bridge issue handling</li><li>Weekly CSAT tracking and community health reviews</li></ul></div>
       </div>
       <div class="phase" data-r>
         <div class="pk"><div class="pn">03</div><div class="pt">Reporting</div></div>
@@ -447,8 +452,8 @@ document.addEventListener('click',e=>{if(!e.target.closest('.drop')){document.qu
     });
 
     document.querySelectorAll('.ctr').forEach(el=>{
-      const t=parseInt(el.dataset.t,10);
-      inView(el,()=>animate(0,t,{duration:1.8,ease:EASE,onUpdate:v=>{el.textContent=Math.round(v);}}),{margin:'-12% 0px'});
+      const t=parseInt(el.dataset.t,10);let done=false;
+      inView(el,()=>{if(done)return;done=true;animate(0,t,{duration:1.8,ease:EASE,onUpdate:v=>{el.textContent=Math.round(v);}});},{margin:'-12% 0px'});
     });
 
     document.querySelectorAll('.bleed img').forEach(img=>{
