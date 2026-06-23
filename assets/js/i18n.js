@@ -68,7 +68,7 @@
     btn.id = 'lang-toggle';
     btn.setAttribute('aria-label', 'Switch language / Cambiar idioma');
     btn.style.cssText = [
-      'position:fixed', 'bottom:24px', 'right:24px', 'z-index:99998',
+      'position:fixed', 'bottom:24px', 'left:24px', 'z-index:99998',
       'background:#0A0A0F', 'color:#fff',
       'border:1px solid rgba(255,255,255,0.15)',
       'border-radius:100px', 'padding:8px 16px',

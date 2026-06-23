@@ -180,6 +180,17 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 .field-err[hidden]{display:none}
 .req{color:var(--a)}
 .form-note{font-size:0.78rem;color:var(--ink3);margin:12px 0 0;text-wrap:pretty}
+
+/* Legal table of contents */
+.toc{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:0 0 44px}
+.toc-h{font-family:var(--fd);font-variation-settings:'wdth' 86,'wght' 720;text-transform:uppercase;letter-spacing:.02em;font-size:.95rem;margin-bottom:14px;color:var(--ink)}
+.toc ol{list-style:none;margin:0;padding:0;columns:2;column-gap:36px}
+@media(max-width:640px){.toc ol{columns:1}}
+.toc li{margin-bottom:9px;break-inside:avoid;font-size:.86rem;display:flex;gap:8px;align-items:baseline}
+.toc li .num{color:var(--a);font-weight:700;font-variant-numeric:tabular-nums;min-width:1.7em;flex-shrink:0}
+.toc a{color:var(--ink2);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--a)}
+.prose h2{scroll-margin-top:110px}
 </style>
 </head>
 <body>
@@ -265,14 +276,19 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
 
       <p>By using Toeshee, you acknowledge that you have read and understood this Privacy Policy.</p>
 
+      <nav class="toc" aria-label="Table of contents">
+        <div class="toc-h">Contents</div>
+        <ol><li><span class="num">1.</span><a href="#sec-1">About Toeshee</a></li><li><span class="num">2.</span><a href="#sec-2">Scope of This Policy</a></li><li><span class="num">3.</span><a href="#sec-3">Information We Collect</a></li><li><span class="num">4.</span><a href="#sec-4">Information We Do Not Want You to Provide</a></li><li><span class="num">5.</span><a href="#sec-5">How We Use Information</a></li><li><span class="num">6.</span><a href="#sec-6">AI Processing and Model Use</a></li><li><span class="num">7.</span><a href="#sec-7">How We Share Information</a></li><li><span class="num">8.</span><a href="#sec-8">Selling or Sharing Personal Information</a></li><li><span class="num">9.</span><a href="#sec-9">Cookies and Tracking Technologies</a></li><li><span class="num">10.</span><a href="#sec-10">Data Retention</a></li><li><span class="num">11.</span><a href="#sec-11">Data Security</a></li><li><span class="num">12.</span><a href="#sec-12">International Data Transfers</a></li><li><span class="num">13.</span><a href="#sec-13">Your Privacy Rights</a></li><li><span class="num">14.</span><a href="#sec-14">California Privacy Notice</a></li><li><span class="num">15.</span><a href="#sec-15">European, UK, and Swiss Privacy Rights</a></li><li><span class="num">16.</span><a href="#sec-16">Children's Privacy</a></li><li><span class="num">17.</span><a href="#sec-17">Marketing Communications</a></li><li><span class="num">18.</span><a href="#sec-18">Third-Party Links and Services</a></li><li><span class="num">19.</span><a href="#sec-19">Customer Responsibilities</a></li><li><span class="num">20.</span><a href="#sec-20">Changes to This Privacy Policy</a></li><li><span class="num">21.</span><a href="#sec-21">Contact Us</a></li></ol>
+      </nav>
+
       <div data-r>
-        <h2>1. About Toeshee</h2>
+        <h2 id="sec-1">1. About Toeshee</h2>
         <p>Toeshee provides crypto-native customer support outsourcing and related operational services for the decentralized economy, together with a website and client portal that help customers evaluate, engage, and manage those services.</p>
         <p>Toeshee is designed primarily for business-to-business use. We may process business contact information, company information, public information, customer-provided data, usage data, and AI-generated outputs.</p>
       </div>
 
       <div data-r>
-        <h2>2. Scope of This Policy</h2>
+        <h2 id="sec-2">2. Scope of This Policy</h2>
         <p>This Privacy Policy applies to:</p>
         <ul>
           <li>Visitors to the Toeshee website.</li>
@@ -285,7 +301,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>3. Information We Collect</h2>
+        <h2 id="sec-3">3. Information We Collect</h2>
         <h3>3.1 Information You Provide Directly</h3>
         <p>We collect information that you provide to us, including:</p>
         <ul>
@@ -327,7 +343,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>4. Information We Do Not Want You to Provide</h2>
+        <h2 id="sec-4">4. Information We Do Not Want You to Provide</h2>
         <p>Unless we expressly agree in writing, you should not submit:</p>
         <ul>
           <li>Social Security numbers</li>
@@ -346,7 +362,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>5. How We Use Information</h2>
+        <h2 id="sec-5">5. How We Use Information</h2>
         <h3>5.1 To Provide the Platform</h3>
         <p>Create and manage accounts; authenticate users; provide dashboards, the client portal, and workflows; process customer configurations; deliver requested support services; generate outputs; send alerts and reports; provide exports and integrations.</p>
         <h3>5.2 To Support Customers</h3>
@@ -363,7 +379,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>6. AI Processing and Model Use</h2>
+        <h2 id="sec-6">6. AI Processing and Model Use</h2>
         <p>Toeshee uses AI technologies to help generate summaries, recommendations, suggested responses, and related outputs, including through the Toeshee website assistant.</p>
         <p>We may use customer inputs, usage data, outputs, feedback, and operational data to operate, secure, evaluate, improve, and develop the Platform, subject to our agreements with customers and applicable law.</p>
         <p>Where enterprise agreements, data processing addenda, or order forms include different commitments regarding AI training, model improvement, data retention, or customer data segregation, those written agreements will control for that customer.</p>
@@ -372,7 +388,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>7. How We Share Information</h2>
+        <h2 id="sec-7">7. How We Share Information</h2>
         <h3>7.1 Service Providers</h3>
         <p>We may share information with vendors that help us operate our business and Platform, including cloud hosting providers, AI infrastructure providers, analytics providers, email and communication tools, payment processors, customer support tools, security vendors, data storage providers, error monitoring tools, and professional advisors.</p>
         <p>These providers are authorized to process information only as needed to provide services to us, subject to contractual obligations.</p>
@@ -389,47 +405,47 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>8. Selling or Sharing Personal Information</h2>
+        <h2 id="sec-8">8. Selling or Sharing Personal Information</h2>
         <p>Toeshee does not sell personal information in the traditional sense of exchanging it for money.</p>
         <p>Some privacy laws define "sale" or "sharing" broadly to include certain advertising, analytics, or data-sharing activities. If our activities are considered a sale or sharing under applicable law, eligible individuals may have the right to opt out.</p>
         <p>If required, we will provide a "Do Not Sell or Share My Personal Information" link or equivalent opt-out mechanism.</p>
       </div>
 
       <div data-r>
-        <h2>9. Cookies and Tracking Technologies</h2>
+        <h2 id="sec-9">9. Cookies and Tracking Technologies</h2>
         <p>We may use cookies, pixels, tags, local storage, and similar technologies to operate the website, remember preferences, improve user experience, analyze website traffic, measure marketing performance, detect fraud and security risks, personalize content, and support advertising or retargeting.</p>
         <p>You can manage cookies through your browser settings. Some features may not work properly if cookies are disabled. Where required by law, we will provide cookie consent or preference tools. See our <a href="cookie-policy.html">Cookie Policy</a> for more detail.</p>
       </div>
 
       <div data-r>
-        <h2>10. Data Retention</h2>
+        <h2 id="sec-10">10. Data Retention</h2>
         <p>We retain information for as long as reasonably necessary to provide the Platform, maintain customer accounts, fulfill contracts, support legitimate business purposes, comply with legal obligations, resolve disputes, enforce agreements, maintain security, preserve audit logs, and meet tax, accounting, and reporting requirements.</p>
         <p>Retention periods may vary based on the type of information, customer settings, legal requirements, and business needs.</p>
         <p>Customers may request deletion of Customer Data subject to contractual terms, legal obligations, backup retention, dispute preservation, and technical limitations.</p>
       </div>
 
       <div data-r>
-        <h2>11. Data Security</h2>
+        <h2 id="sec-11">11. Data Security</h2>
         <p>We use commercially reasonable administrative, technical, and organizational safeguards designed to protect information from unauthorized access, disclosure, alteration, and destruction.</p>
         <p>Security measures may include access controls, authentication controls, encryption in transit, encryption at rest where appropriate, secure credential management, logging and monitoring, vendor security review, role-based permissions, backup and recovery procedures, and incident response processes.</p>
         <p>No system is completely secure. We cannot guarantee that unauthorized third parties will never defeat security measures. Customers are responsible for securing their own accounts, passwords, devices, networks, users, and integrations.</p>
       </div>
 
       <div data-r>
-        <h2>12. International Data Transfers</h2>
+        <h2 id="sec-12">12. International Data Transfers</h2>
         <p>Toeshee may process information in the United States and other countries where we or our service providers operate, including Colombia, Panama, and the Dominican Republic.</p>
         <p>If information is transferred from the European Economic Area, United Kingdom, Switzerland, or other regions with data transfer restrictions, we will use appropriate safeguards where required, such as standard contractual clauses or other lawful transfer mechanisms.</p>
       </div>
 
       <div data-r>
-        <h2>13. Your Privacy Rights</h2>
+        <h2 id="sec-13">13. Your Privacy Rights</h2>
         <p>Depending on your location and applicable law, you may have rights to access, correct, delete, or receive a copy of personal information; opt out of certain processing, sale, sharing, or targeted advertising; restrict or object to processing; withdraw consent; appeal a denied privacy request; and not be discriminated against for exercising privacy rights.</p>
         <p>To exercise privacy rights, contact us at <a href="mailto:compliance@center-source.com">compliance@center-source.com</a>.</p>
         <p>We may need to verify your identity before responding. We may deny requests where permitted by law, including where the request is fraudulent, unverifiable, excessive, conflicts with legal obligations, affects the rights of others, or relates to data controlled by one of our customers. If we process personal information on behalf of a customer, we may direct you to contact that customer.</p>
       </div>
 
       <div data-r>
-        <h2>14. California Privacy Notice</h2>
+        <h2 id="sec-14">14. California Privacy Notice</h2>
         <p>This section applies to California residents where the California Consumer Privacy Act, as amended, applies.</p>
         <h3>Categories of Personal Information We May Collect</h3>
         <ul>
@@ -448,7 +464,7 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>15. European, UK, and Swiss Privacy Rights</h2>
+        <h2 id="sec-15">15. European, UK, and Swiss Privacy Rights</h2>
         <p>Where GDPR, UK GDPR, or Swiss data protection law applies, this section provides additional information.</p>
         <h3>Controller and Processor Roles</h3>
         <p>For website visitors, demo requestors, and our own sales and marketing contacts, Toeshee generally acts as a data controller. For Customer Data processed on behalf of a customer within the Platform, Toeshee generally acts as a processor or service provider, and the customer acts as the controller.</p>
@@ -459,37 +475,37 @@ footer{background:var(--dark);color:var(--hi);padding:clamp(56px,8vw,96px) 0 0}
       </div>
 
       <div data-r>
-        <h2>16. Children's Privacy</h2>
+        <h2 id="sec-16">16. Children's Privacy</h2>
         <p>Toeshee is not intended for children. We do not knowingly collect personal information from children under 13 or under the age required by applicable law.</p>
         <p>If we learn that we have collected children's personal information without required consent, we will take reasonable steps to delete it.</p>
       </div>
 
       <div data-r>
-        <h2>17. Marketing Communications</h2>
+        <h2 id="sec-17">17. Marketing Communications</h2>
         <p>If you receive marketing emails from us, you may opt out by clicking the unsubscribe link or contacting us.</p>
         <p>Even if you opt out of marketing emails, we may still send transactional or administrative messages, such as account, billing, security, or service-related communications.</p>
       </div>
 
       <div data-r>
-        <h2>18. Third-Party Links and Services</h2>
+        <h2 id="sec-18">18. Third-Party Links and Services</h2>
         <p>Our website and Platform may contain links to third-party websites, applications, services, or integrations.</p>
         <p>We are not responsible for the privacy practices, security, content, or policies of third parties. You should review their privacy policies before providing information or connecting services.</p>
       </div>
 
       <div data-r>
-        <h2>19. Customer Responsibilities</h2>
+        <h2 id="sec-19">19. Customer Responsibilities</h2>
         <p>Customers are responsible for providing required notices to their users and contacts; obtaining required consents and permissions; ensuring Customer Data is lawfully collected and submitted; configuring user access appropriately; complying with privacy, marketing, communications, and data protection laws; responding to privacy requests where the customer controls the data; and ensuring use of Toeshee outputs complies with applicable law.</p>
       </div>
 
       <div data-r>
-        <h2>20. Changes to This Privacy Policy</h2>
+        <h2 id="sec-20">20. Changes to This Privacy Policy</h2>
         <p>We may update this Privacy Policy from time to time. The updated version will be posted on this page with a revised effective date.</p>
         <p>If we make material changes, we may provide additional notice, such as by email, dashboard notice, or website banner.</p>
         <p>Continued use of Toeshee after an updated Privacy Policy becomes effective means you acknowledge the updated Privacy Policy.</p>
       </div>
 
       <div data-r>
-        <h2>21. Contact Us</h2>
+        <h2 id="sec-21">21. Contact Us</h2>
         <p>For questions, requests, or concerns about this Privacy Policy or our privacy practices, contact:</p>
         <p>Center Source Group (operating the TOESHEE brand)<br>
         Privacy &amp; Compliance: <a href="mailto:compliance@center-source.com">compliance@center-source.com</a><br>

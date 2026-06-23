@@ -122,6 +122,7 @@
         var pw = el["password"].value;
         var pw2 = el["confirm"].value;
         if (!name) return showError("reg-err", "Please enter your name.");
+        if (!company) return showError("reg-err", "Please enter your company name.");
         if (!validEmail(email)) return showError("reg-err", "Please enter a valid email address.");
         if (pw.length < 8) return showError("reg-err", "Password must be at least 8 characters.");
         if (pw !== pw2) return showError("reg-err", "Passwords do not match.");
