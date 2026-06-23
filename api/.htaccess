@@ -1,0 +1,16 @@
+# Block direct web access to sensitive files in /api.
+# chat.php, contact.php, auth.php remain reachable; only secrets are denied.
+
+<FilesMatch "(?i)\.(sql|md)$">
+  Require all denied
+</FilesMatch>
+
+<Files "config.php">
+  Require all denied
+</Files>
+<Files "config.example.php">
+  Require all denied
+</Files>
+<Files "_bootstrap.php">
+  Require all denied
+</Files>

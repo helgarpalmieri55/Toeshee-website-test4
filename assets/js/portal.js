@@ -1,74 +1,119 @@
-/* Toeshee client portal — FRONT-END PROTOTYPE.
+/* Toeshee client portal — front end.
  *
- * Accounts are stored in the browser (localStorage) so register / log in /
- * log out flows work for demonstration. This is NOT secure credential storage
- * and is intended as a placeholder for a real authentication backend.
- *
- * Responsibilities:
- *   - Site-wide: reflect logged-in state in the nav account link (.acct-link).
- *   - On portal.html: drive the login / create-account / dashboard views.
+ * Primary mode: talks to the PHP backend (api/auth.php) with real accounts in
+ * MySQL and a server session cookie.
+ * Fallback mode: if the backend is unreachable (e.g. static local preview),
+ * it transparently falls back to a browser-only (localStorage) prototype so
+ * the flows still demo. Once deployed to GoDaddy with the API in place, the
+ * backend is used automatically.
  */
 (function () {
   "use strict";
+  var AUTH = "/api/auth.php";
+
+  /* ---------- localStorage fallback store ---------- */
   var LS_USERS = "toeshee_users";
   var LS_SESSION = "toeshee_session";
-
-  function read(key, def) {
-    try { return JSON.parse(localStorage.getItem(key)) || def; } catch (e) { return def; }
-  }
-  function write(key, val) {
-    try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {}
-  }
-  function users() { return read(LS_USERS, []); }
-  function saveUsers(list) { write(LS_USERS, list); }
-  function session() { return read(LS_SESSION, null); }
-  function setSession(email) { write(LS_SESSION, email); }
-  function clearSession() { try { localStorage.removeItem(LS_SESSION); } catch (e) {} }
-  function currentUser() {
-    var s = session();
-    if (!s) return null;
-    return users().filter(function (u) { return u.email === s; })[0] || null;
+  function lread(k, d) { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } }
+  function lwrite(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function lusers() { return lread(LS_USERS, []); }
+  function lsession() { return lread(LS_SESSION, null); }
+  function lcurrentUser() {
+    var s = lsession(); if (!s) return null;
+    return lusers().filter(function (u) { return u.email === s; })[0] || null;
   }
   async function hashPw(pw) {
     try {
-      var enc = new TextEncoder().encode(pw + "::toeshee");
-      var buf = await crypto.subtle.digest("SHA-256", enc);
-      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
-        return ("0" + b.toString(16)).slice(-2);
-      }).join("");
-    } catch (e) {
-      return "plain:" + pw; // fallback for very old browsers (prototype only)
-    }
+      var buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(pw + "::toeshee"));
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+    } catch (e) { return "plain:" + pw; }
   }
   function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   function firstName(u) { return (u && u.name ? u.name.split(" ")[0] : "there"); }
 
-  /* ---- Nav account link (every page) ---- */
-  function updateNav() {
+  async function localRegister(p) {
+    if (!p.name) return { error: "Please enter your name." };
+    if (!p.company) return { error: "Please enter your company name." };
+    if (!validEmail(p.email)) return { error: "Please enter a valid email address." };
+    if (p.password.length < 8) return { error: "Password must be at least 8 characters." };
+    var list = lusers();
+    if (list.some(function (u) { return u.email === p.email; })) return { error: "An account with that email already exists. Try logging in." };
+    var hashed = await hashPw(p.password);
+    var rec = { name: p.name, company: p.company, email: p.email, pass: hashed, created: Date.now() };
+    list.push(rec); lwrite(LS_USERS, list); lwrite(LS_SESSION, p.email);
+    return { user: { name: rec.name, email: rec.email, company: rec.company, created: rec.created } };
+  }
+  async function localLogin(p) {
+    var u = lusers().filter(function (x) { return x.email === p.email; })[0];
+    var hashed = await hashPw(p.password);
+    if (!u || u.pass !== hashed) return { error: "Incorrect email or password." };
+    lwrite(LS_SESSION, p.email);
+    return { user: { name: u.name, email: u.email, company: u.company, created: u.created } };
+  }
+  function localLogout() { try { localStorage.removeItem(LS_SESSION); } catch (e) {} }
+
+  /* ---------- API helper ---------- */
+  async function api(action, method, body) {
+    var res = await fetch(AUTH + "?action=" + action, {
+      method: method || "GET",
+      credentials: "same-origin",
+      headers: body ? { "Content-Type": "application/json" } : undefined,
+      body: body ? JSON.stringify(body) : undefined
+    });
+    var data = {};
+    try { data = await res.json(); } catch (e) {}
+    return { status: res.status, ok: res.ok, data: data };
+  }
+
+  /* ---------- unified operations (API first, local fallback) ---------- */
+  async function getUser() {
+    try { var r = await api("me"); return r.data.user || null; }
+    catch (e) { return lcurrentUser(); }
+  }
+  async function register(p) {
+    try {
+      var r = await api("register", "POST", p);
+      return r.ok ? { user: r.data.user } : { error: r.data.error || "Registration failed." };
+    } catch (e) { return localRegister(p); }
+  }
+  async function login(p) {
+    try {
+      var r = await api("login", "POST", p);
+      return r.ok ? { user: r.data.user } : { error: r.data.error || "Login failed." };
+    } catch (e) { return localLogin(p); }
+  }
+  async function logout() {
+    try { await api("logout", "POST", {}); } catch (e) { localLogout(); }
+    localLogout(); // clear local too, regardless
+  }
+
+  /* ---------- Nav account link (every page) ---------- */
+  async function updateNav() {
     var links = document.querySelectorAll(".acct-link");
-    var u = currentUser();
+    if (!links.length) return;
+    var u = await getUser();
     Array.prototype.forEach.call(links, function (link) {
       link.textContent = u ? "Account" : "Log in";
       link.setAttribute("href", "portal.html");
     });
   }
 
-  /* ---- Portal page ---- */
+  /* ---------- Portal page ---------- */
   function initPortal() {
     var authView = document.getElementById("portal-auth");
     var dashView = document.getElementById("portal-dash");
-    if (!authView || !dashView) return; // not the portal page
+    if (!authView || !dashView) return;
 
     function showError(id, msg) {
       var el = document.getElementById(id);
       if (el) { el.textContent = msg; el.hidden = !msg; }
     }
+    function setNavText(u) {
+      document.querySelectorAll(".acct-link").forEach(function (l) { l.textContent = u ? "Account" : "Log in"; });
+    }
 
-    function renderDash() {
-      var u = currentUser();
-      if (!u) { renderAuth(); return; }
-      authView.hidden = true;
-      dashView.hidden = false;
+    function renderDash(u) {
+      authView.hidden = true; dashView.hidden = false;
       var nameEl = document.getElementById("dash-name");
       if (nameEl) nameEl.textContent = firstName(u);
       var d = document.getElementById("dash-details");
@@ -78,22 +123,20 @@
           '<div class="dash-row"><span>Email</span><strong></strong></div>' +
           '<div class="dash-row"><span>Company</span><strong></strong></div>' +
           '<div class="dash-row"><span>Member since</span><strong></strong></div>';
-        var strongs = d.querySelectorAll("strong");
-        strongs[0].textContent = u.name || "—";
-        strongs[1].textContent = u.email;
-        strongs[2].textContent = u.company || "—";
-        strongs[3].textContent = new Date(u.created).toLocaleDateString();
+        var st = d.querySelectorAll("strong");
+        st[0].textContent = u.name || "—";
+        st[1].textContent = u.email;
+        st[2].textContent = u.company || "—";
+        var dt = u.created ? new Date(u.created) : null;
+        st[3].textContent = dt && !isNaN(dt) ? dt.toLocaleDateString() : "—";
       }
-      updateNav();
+      setNavText(u);
     }
-
     function renderAuth() {
-      authView.hidden = false;
-      dashView.hidden = true;
-      updateNav();
+      authView.hidden = false; dashView.hidden = true; setNavText(null);
     }
 
-    // Tab switching
+    // Tabs
     var tabs = authView.querySelectorAll("[data-tab]");
     var panels = { login: document.getElementById("tab-login"), register: document.getElementById("tab-register") };
     function selectTab(name) {
@@ -109,64 +152,62 @@
       t.addEventListener("click", function () { selectTab(t.getAttribute("data-tab")); });
     });
 
-    // Register
+    function busy(form, on, label) {
+      var btn = form.querySelector('button[type=submit]');
+      if (!btn) return;
+      if (on) { btn.dataset.label = btn.textContent; btn.textContent = "Please wait…"; btn.disabled = true; }
+      else { btn.textContent = btn.dataset.label || label; btn.disabled = false; }
+    }
+
     var regForm = document.getElementById("form-register");
     if (regForm) {
       regForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        showError("reg-err", "");
+        e.preventDefault(); showError("reg-err", "");
         var el = regForm.elements;
-        var name = el["name"].value.trim();
-        var email = el["email"].value.trim().toLowerCase();
-        var company = el["company"].value.trim();
-        var pw = el["password"].value;
-        var pw2 = el["confirm"].value;
-        if (!name) return showError("reg-err", "Please enter your name.");
-        if (!company) return showError("reg-err", "Please enter your company name.");
-        if (!validEmail(email)) return showError("reg-err", "Please enter a valid email address.");
-        if (pw.length < 8) return showError("reg-err", "Password must be at least 8 characters.");
-        if (pw !== pw2) return showError("reg-err", "Passwords do not match.");
-        var list = users();
-        if (list.some(function (u) { return u.email === email; })) {
-          return showError("reg-err", "An account with that email already exists. Try logging in.");
-        }
-        var hashed = await hashPw(pw);
-        list.push({ name: name, email: email, company: company, pass: hashed, created: Date.now() });
-        saveUsers(list);
-        setSession(email);
-        renderDash();
+        var payload = {
+          name: el["name"].value.trim(),
+          company: el["company"].value.trim(),
+          email: el["email"].value.trim().toLowerCase(),
+          password: el["password"].value,
+          confirm: el["confirm"].value
+        };
+        if (!payload.name) return showError("reg-err", "Please enter your name.");
+        if (!payload.company) return showError("reg-err", "Please enter your company name.");
+        if (!validEmail(payload.email)) return showError("reg-err", "Please enter a valid email address.");
+        if (payload.password.length < 8) return showError("reg-err", "Password must be at least 8 characters.");
+        if (payload.password !== payload.confirm) return showError("reg-err", "Passwords do not match.");
+        busy(regForm, true);
+        var r = await register({ name: payload.name, company: payload.company, email: payload.email, password: payload.password });
+        busy(regForm, false, "Create account");
+        if (r.error) return showError("reg-err", r.error);
+        renderDash(r.user);
       });
     }
 
-    // Login
     var logForm = document.getElementById("form-login");
     if (logForm) {
       logForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        showError("log-err", "");
+        e.preventDefault(); showError("log-err", "");
         var email = logForm.elements["email"].value.trim().toLowerCase();
         var pw = logForm.elements["password"].value;
         if (!validEmail(email)) return showError("log-err", "Please enter a valid email address.");
-        var u = users().filter(function (x) { return x.email === email; })[0];
-        var hashed = await hashPw(pw);
-        if (!u || u.pass !== hashed) return showError("log-err", "Incorrect email or password.");
-        setSession(email);
-        renderDash();
+        busy(logForm, true);
+        var r = await login({ email: email, password: pw });
+        busy(logForm, false, "Log in");
+        if (r.error) return showError("log-err", r.error);
+        renderDash(r.user);
       });
     }
 
-    // Logout
     var logoutBtn = document.getElementById("dash-logout");
     if (logoutBtn) {
-      logoutBtn.addEventListener("click", function () {
-        clearSession();
-        renderAuth();
-        selectTab("login");
+      logoutBtn.addEventListener("click", async function () {
+        await logout(); renderAuth(); selectTab("login");
       });
     }
 
     // Initial view
-    if (currentUser()) renderDash(); else { renderAuth(); selectTab("login"); }
+    getUser().then(function (u) { if (u) renderDash(u); else { renderAuth(); selectTab("login"); } });
   }
 
   function init() { updateNav(); initPortal(); }

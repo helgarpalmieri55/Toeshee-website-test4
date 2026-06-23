@@ -22,7 +22,7 @@
     window.TOESHEE_CHAT_ENDPOINT ||
     (document.body && document.body.getAttribute("data-chat-endpoint")) ||
     (function () { try { return localStorage.getItem("toeshee_chat_endpoint"); } catch (e) { return null; } })() ||
-    null;
+    "/api/chat.php"; // default backend; falls back to the offline KB if unreachable
 
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

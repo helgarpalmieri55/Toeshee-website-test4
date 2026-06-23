@@ -1,0 +1,53 @@
+name: Deploy to GoDaddy
+
+# Publishes the site to GoDaddy shared hosting over FTP whenever you push to
+# the production branch. Configure these repo secrets first:
+#   Settings → Secrets and variables → Actions → New repository secret
+#     FTP_SERVER    e.g. ftp.toeshee.com  (from cPanel → FTP Accounts)
+#     FTP_USERNAME  your FTP user
+#     FTP_PASSWORD  your FTP password
+#
+# Change `branches` below to whatever branch you publish from.
+# NOTE: api/config.php is NOT in the repo (it holds secrets). Create it once on
+# the server via cPanel File Manager; this deploy never deletes it.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-godaddy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp           # switch to ftps if your GoDaddy plan supports it
+          local-dir: ./
+          server-dir: public_html/   # GoDaddy document root
+          # Do NOT enable dangerous-clean-slate — it would delete server-only
+          # files such as api/config.php.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            node_modules/**
+            .claude/**
+            .impeccable/**
+            db/**
+            *.md
+            package.json
+            package-lock.json
+            2026.zip
+            api/config.example.php
