@@ -838,7 +838,10 @@ document.getElementById('ind-next').addEventListener('click',()=>rail.scrollBy({
   // Progressive disclosure: keep the form short, reveal the optional sections
   // on demand (button) or as soon as the visitor starts typing.
   const moreBtn=$('cform-toggle'),more=$('cform-more');
-  function revealMore(){if(more&&more.hidden){more.hidden=false;if(moreBtn)moreBtn.setAttribute('aria-expanded','true');}}
+  function revealMore(){if(more&&more.hidden){more.hidden=false;if(moreBtn)moreBtn.setAttribute('aria-expanded','true');
+    // page grew taller — let Lenis (smooth scroll) recompute its scroll limit,
+    // otherwise the mouse wheel stays clamped to the old height.
+    requestAnimationFrame(function(){window.dispatchEvent(new Event('resize'));});}}
   if(moreBtn)moreBtn.addEventListener('click',revealMore);
   ['cn','ce','cphone','cc','cjob','cweb','ccountry'].forEach(id=>{const el=$(id);if(el)el.addEventListener('input',revealMore,{once:true});});
   const mark=(el,bad)=>el&&el.setAttribute('aria-invalid',bad?'true':'false');
